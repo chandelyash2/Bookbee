@@ -1154,6 +1154,23 @@ const App: React.FC = () => {
                           <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41" />
                         </svg>
                         Priority support
+                      </li>{" "}
+                      <li className="flex items-center gap-2">
+                        {" "}
+                        <svg
+                          className="w-4 h-4 text-emerald-500 shrink-0"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2.5"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        300 DPI print-ready PDF
                       </li>
                     </ul>
                   </button>
@@ -1296,6 +1313,22 @@ const App: React.FC = () => {
                           />
                         </svg>
                         Priority support
+                      </li>{" "}
+                      <li className="flex items-center gap-2 text-slate-900 text-sm">
+                        <svg
+                          className="w-4 h-4 text-emerald-500 shrink-0"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2.5"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        300 DPI print-ready PDF
                       </li>
                     </>
                   )}
