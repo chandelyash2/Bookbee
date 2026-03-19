@@ -9,6 +9,8 @@ import {
 
 // Load Stripe outside component to avoid re-render re-init
 const stripeKey = import.meta.env.VITE_STRIPE_PUBLIC_KEY || '';
+console.log(stripeKey,"STTTT");
+
 const stripePromise = loadStripe(stripeKey);
 
 const API_URL = '/api/create-payment-intent';
@@ -16,7 +18,7 @@ const API_URL = '/api/create-payment-intent';
 // ─────────────────────────────────────────────
 // Inner form — rendered INSIDE <Elements>
 // ─────────────────────────────────────────────
-const PaymentForm: React.FC<{ onSuccess: () => void }> = ({ onSuccess }) => {
+const PaymentForm: React.FC<{ onSuccess: () => void ,amount: number;   }> = ({ onSuccess,amount }) => {
      const stripe = useStripe();
      const elements = useElements();
 
@@ -68,7 +70,7 @@ const PaymentForm: React.FC<{ onSuccess: () => void }> = ({ onSuccess }) => {
                     {isSubmitting ? (
                          <span style={styles.loader}>Processing...</span>
                     ) : (
-                         '💳 Pay $9.00'
+                         `💳 Pay ${(amount / 100).toFixed(2)}`
                     )}
                </button>
           </form>
@@ -122,6 +124,8 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
      }, [amount, currency, customerEmail]);
 
      const handleSuccess = () => {
+          console.log('worrkkkkk');
+          
           setSucceeded(true);
           onSuccess?.();
      };
@@ -180,7 +184,7 @@ const CheckoutForm: React.FC<CheckoutFormProps> = ({
                          },
                     }}
                >
-                    <PaymentForm onSuccess={handleSuccess} />
+                    <PaymentForm onSuccess={handleSuccess} amount={amount}/>
                </Elements>
 
                <p style={styles.secureNote}>🔒 Payments are processed securely by Stripe.</p>

@@ -70,6 +70,7 @@ const App: React.FC = () => {
   const [subscriberPassword, setSubscriberPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [loginError, setLoginError] = useState("");
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [loggedInEmail, setLoggedInEmail] = useState("");
   // Plan selection
   const [selectedPlan, setSelectedPlan] = useState<"starter" | "author" | null>(
@@ -117,15 +118,24 @@ const App: React.FC = () => {
     setCoverDirty(true); // any field change marks cover as needing a fresh export
   };
 
-  const handleAiGeneration = async () => {
-    setIsGenerating(true);
+const handleAiGeneration = async () => {
+  if (isGenerating) return; // 🚨 BLOCK duplicate
+
+  setIsGenerating(true);
+  try {
     const imageUrl = await generateBookArt(config.aiPrompt);
+
     if (imageUrl) {
-      setConfig((prev) => ({ ...prev, generatedImageUrl: imageUrl }));
-      setCoverDirty(true); // new AI art = cover changed
+      setConfig((prev) => ({
+        ...prev,
+        generatedImageUrl: imageUrl,
+      }));
+      setCoverDirty(true);
     }
+  } finally {
     setIsGenerating(false);
-  };
+  }
+};
 
   const handleCancelSubscription = () => {
     showConfirm(
@@ -163,7 +173,9 @@ const App: React.FC = () => {
       setLoginError("Please enter your email and password.");
       return;
     }
+    if (isLoggingIn) return;
     setLoginError("");
+    setIsLoggingIn(true);
     try {
       const res = await fetch("/api/login", {
         method: "POST",
@@ -192,6 +204,8 @@ const App: React.FC = () => {
       );
     } catch {
       setLoginError("Could not connect to server. Please try again.");
+    } finally {
+      setIsLoggingIn(false);
     }
   };
 
@@ -271,6 +285,7 @@ const App: React.FC = () => {
 
   // "Export PDF" header button — this is the only action that deducts quota
   const handleExportPDF = () => {
+    if (isExportingPDF) return;
     if (!isPaid && !isFreeUser) {
       openPaymentModal();
       return;
@@ -350,7 +365,7 @@ const App: React.FC = () => {
         )
         .join("\\n");
 
-      const html = `<!DOCTYPE html>
+ const html = `<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8"/>
@@ -359,8 +374,22 @@ const App: React.FC = () => {
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700;900&family=Great+Vibes&family=Cinzel:wght@700&family=Orbitron:wght@400;700&family=Crimson+Text:ital,wght@0,400;1,700&family=Bebas+Neue&family=Libre+Baskerville:wght@700&family=Special+Elite&display=block" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { width: ${coverWidth}px; height: ${coverHeight}px; overflow: hidden; }
+    * { margin: 0 !important; padding: 0 !important; box-sizing: border-box !important; }
+    html, body {
+      width: ${coverWidth}px;
+      height: ${coverHeight}px;
+      max-height: ${coverHeight}px;
+      overflow: hidden !important;
+      display: block;
+      background: #000;  /* ✅ fallback so no white shows */
+    }
+    /* ✅ make sure the cover element fills exactly */
+    body > * {
+      width: ${coverWidth}px !important;
+      height: ${coverHeight}px !important;
+      max-height: ${coverHeight}px !important;
+      overflow: hidden !important;
+    }
   </style>
 </head>
 <body>${clone.outerHTML}</body>
@@ -537,12 +566,13 @@ const App: React.FC = () => {
           <div className="flex items-center gap-1.5">
             <button
               onClick={handleExportPDF}
-              className="bg-slate-900 text-white px-6 py-2 rounded-full font-bold hover:bg-slate-800 transition shadow-md text-xs lg:text-base"
+              disabled={isExportingPDF}
+              className="bg-slate-900 text-white px-6 py-2 rounded-full font-bold hover:bg-slate-800 transition shadow-md text-xs lg:text-base disabled:opacity-50"
             >
               {isPaid
-                ? `Export PDF (${userPlan ? PLANS[userPlan].covers - exportedCovers : 0} left)`
+                ? `Export PDF (${userPlan ? Math.max(0, PLANS[userPlan].covers - exportedCovers) : 0} left)`
                 : isFreeUser
-                  ? `Export PDF (${1 - exportedCovers} left)`
+                  ? `Export PDF (${Math.max(0, 1 - exportedCovers)} left)`
                   : "Remove Watermark"}
             </button>
           </div>
@@ -814,6 +844,7 @@ const App: React.FC = () => {
                 <button
                   onClick={() => setStep(4)}
                   className="flex-[2] bg-yellow-500 p-4 rounded-xl font-bold"
+                  disabled={isGenerating}
                 >
                   Next: Typography
                 </button>
@@ -1399,25 +1430,37 @@ const App: React.FC = () => {
                 {/* Log In */}
                 <button
                   disabled={
-                    !subscriberName.includes("@") || !subscriberPassword
+                    isLoggingIn || !subscriberName.includes("@") || !subscriberPassword
                   }
                   onClick={handleLogin}
                   className="w-full border-2 border-slate-900 text-slate-900 bg-white py-2 rounded-lg font-bold text-sm hover:bg-slate-900 hover:text-white transition disabled:opacity-40 flex items-center justify-center gap-2"
                 >
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-                    />
-                  </svg>
-                  Log In to Existing Account
+                  {isLoggingIn ? (
+                    <>
+                      <svg className="animate-spin w-4 h-4" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                      </svg>
+                      Logging In…
+                    </>
+                  ) : (
+                    <>
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+                        />
+                      </svg>
+                      Log In to Existing Account
+                    </>
+                  )}
                 </button>
                 {loginError && (
                   <p className="text-red-500 text-sm text-center mt-1 mb-1 font-medium">
@@ -1654,6 +1697,35 @@ const App: React.FC = () => {
                 Confirm
               </button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* ─── Fullscreen PDF Export Loader ─────────────────────────── */}
+      {isExportingPDF && (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/60 backdrop-blur-sm">
+          <div className="flex flex-col items-center gap-4 bg-white rounded-2xl px-10 py-8 shadow-2xl">
+            <svg
+              className="animate-spin w-10 h-10 text-yellow-500"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              />
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
+              />
+            </svg>
+            <p className="text-slate-800 font-bold text-lg">Generating PDF…</p>
+            <p className="text-slate-500 text-sm">This may take a few seconds</p>
           </div>
         </div>
       )}
