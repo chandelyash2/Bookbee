@@ -7,9 +7,7 @@ export default async function handler(req, res) {
      if (!email) return res.status(400).json({ status: 'error', message: 'email is required' });
 
      try {
-          const conn = await pool.getConnection();
-          await conn.execute("UPDATE subscribers SET status = 'cancelled' WHERE email = ?", [email]);
-          conn.release();
+          await pool.query("UPDATE subscribers SET status = 'cancelled' WHERE email = $1", [email]);
           res.json({ status: 'ok', message: 'Subscription cancelled' });
      } catch (error) {
           console.error('cancel-subscription error:', error.message);
