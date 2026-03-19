@@ -374,7 +374,7 @@ const handleAiGeneration = async () => {
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700;900&family=Great+Vibes&family=Cinzel:wght@700&family=Orbitron:wght@400;700&family=Crimson+Text:ital,wght@0,400;1,700&family=Bebas+Neue&family=Libre+Baskerville:wght@700&family=Special+Elite&display=block" rel="stylesheet">
   <style>
-    * { margin: 0 !important; padding: 0 !important; box-sizing: border-box !important; }
+    * { margin: 0 !important; box-sizing: border-box !important; }
     html, body {
       width: ${coverWidth}px;
       height: ${coverHeight}px;
