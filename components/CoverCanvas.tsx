@@ -78,7 +78,7 @@ const CoverCanvas: React.FC<CoverCanvasProps> = ({ config, isPaid = false }) => 
           writingMode: 'vertical-rl',
           textOrientation: 'mixed'
         }}>
-          <h2 style={getTextStyle(true)} className="text-lg font-bold drop-shadow-lg">
+          <h2 style={getTextStyle(true)} className="text-sm font-bold drop-shadow-lg">
             {config.title} <span className="mx-2 opacity-60">|</span> {config.author}
           </h2>
         </div>

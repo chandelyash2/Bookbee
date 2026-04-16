@@ -9,6 +9,88 @@ import HowItWorks from "./components/HowItWorks";
 import Pricing from "./components/Pricing";
 import Features from "./components/Features";
 import About from "./components/About";
+import BookCoverBeePage from "./components/BookCoverBeePage";
+import BookCoverDimensionsPage from "./components/BookCoverDimensionsPage";
+import SpineWidthCalculatorPage from "./components/SpineWidthCalculatorPage";
+import PaperbackCoverSizePage from "./components/PaperbackCoverSizePage";
+import BookCoverMakerFreePage from "./components/BookCoverMakerFreePage";
+import ContactPage from "./components/ContactPage";
+
+type View =
+  | "home"
+  | "editor"
+  | "how-it-works"
+  | "pricing"
+  | "features"
+  | "about"
+  | "bookcoverbee"
+  | "book-cover-dimensions"
+  | "spine-width-calculator"
+  | "paperback-cover-size"
+  | "book-cover-maker-free"
+  | "contact";
+
+const getViewFromPath = (): View => {
+  const path = window.location.pathname.replace(/\/+$/, "") || "/";
+
+  switch (path) {
+    case "/how-it-works":
+      return "how-it-works";
+    case "/pricing":
+      return "pricing";
+    case "/features":
+      return "features";
+    case "/about":
+      return "about";
+    case "/bookcoverbee":
+      return "bookcoverbee";
+    case "/kdp-cover-size-calculator":
+      return "bookcoverbee";
+    case "/book-cover-dimensions":
+      return "book-cover-dimensions";
+    case "/spine-width-calculator":
+      return "spine-width-calculator";
+    case "/paperback-cover-size":
+      return "paperback-cover-size";
+    case "/book-cover-maker-free":
+      return "book-cover-maker-free";
+    case "/contact":
+      return "contact";
+    case "/editor":
+      return "editor";
+    default:
+      return "home";
+  }
+};
+
+const getPathFromView = (view: View) => {
+  switch (view) {
+    case "how-it-works":
+      return "/how-it-works";
+    case "pricing":
+      return "/pricing";
+    case "features":
+      return "/features";
+    case "about":
+      return "/about";
+    case "bookcoverbee":
+      return "/bookcoverbee";
+    case "book-cover-dimensions":
+      return "/book-cover-dimensions";
+    case "spine-width-calculator":
+      return "/spine-width-calculator";
+    case "paperback-cover-size":
+      return "/paperback-cover-size";
+    case "book-cover-maker-free":
+      return "/book-cover-maker-free";
+    case "contact":
+      return "/contact";
+    case "editor":
+      return "/editor";
+    default:
+      return "/";
+  }
+};
 
 const INITIAL_CONFIG: BookConfig = {
   trimSize: TrimSize.SIZE_6_9,
@@ -27,6 +109,39 @@ const INITIAL_CONFIG: BookConfig = {
     "A shadowy figure standing in the rain with glowing neon signs behind them.",
 };
 
+const GENRE_PROMPTS: Record<Genre, string> = {
+  [Genre.ROMANCE]:
+    "A dreamy moonlit embrace in a flower-filled garden, soft light, elegant romantic mood.",
+  [Genre.THRILLER]:
+    "A shadowy figure in a rain-soaked city alley, dramatic lighting, tense cinematic atmosphere.",
+  [Genre.SCIFI]:
+    "A futuristic skyline with glowing neon lights, distant planets, sleek high-tech atmosphere.",
+  [Genre.FANTASY]:
+    "An ancient castle under a starlit sky, magical mist, epic fantasy atmosphere.",
+  [Genre.HORROR]:
+    "A haunted house in dense fog, dim moonlight, eerie shadows, unsettling horror atmosphere.",
+  [Genre.HISTORY]:
+    "A richly detailed historical scene with period clothing, warm tones, and classic composition.",
+  [Genre.NON_FICTION]:
+    "Clean bold typography with a modern professional layout, sharp contrast, confident tone.",
+  [Genre.MYSTERY]:
+    "A dimly lit street with a lone silhouette, curling mist, suspenseful mystery mood.",
+  [Genre.LITERARY]:
+    "A minimalist atmospheric scene with subtle symbolism, refined composition, and emotional depth.",
+};
+
+const GENRE_HELPERS: Record<Genre, string> = {
+  [Genre.ROMANCE]: "Soft, elegant, emotional visuals with warm or dreamy tones.",
+  [Genre.THRILLER]: "Dark, tense, cinematic imagery with strong contrast and urgency.",
+  [Genre.SCIFI]: "Futuristic worlds, technology, space elements, and sleek dramatic lighting.",
+  [Genre.FANTASY]: "Magic, epic settings, mythical atmosphere, and rich ornamental styling.",
+  [Genre.HORROR]: "Eerie, unsettling, shadowy imagery with ominous atmosphere and dread.",
+  [Genre.HISTORY]: "Period detail, classic composition, and a grounded historical feel.",
+  [Genre.NON_FICTION]: "Clear, authoritative visuals with a structured, professional look.",
+  [Genre.MYSTERY]: "Moody scenes, hidden clues, fog, silhouettes, and suspenseful framing.",
+  [Genre.LITERARY]: "Subtle, symbolic, restrained visuals with a sophisticated tone.",
+};
+
 // ─── Toast / Confirm helpers ─────────────────────────────────
 type ToastType = "success" | "error" | "info";
 interface Toast {
@@ -40,9 +155,7 @@ interface ConfirmState {
 }
 
 const App: React.FC = () => {
-  const [view, setView] = useState<
-    "home" | "editor" | "how-it-works" | "pricing" | "features" | "about"
-  >("home");
+  const [view, setView] = useState<View>(() => getViewFromPath());
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [config, setConfig] = useState<BookConfig>(INITIAL_CONFIG);
   const [step, setStep] = useState(1);
@@ -111,12 +224,45 @@ const App: React.FC = () => {
     >,
   ) => {
     const { name, value } = e.target;
-    setConfig((prev) => ({
-      ...prev,
-      [name]: name === "pageCount" ? parseInt(value) || 0 : value,
-    }));
+    setConfig((prev) => {
+      if (name === "genre") {
+        const nextGenre = value as Genre;
+        const shouldRefreshPrompt =
+          !prev.aiPrompt.trim() ||
+          Object.values(GENRE_PROMPTS).includes(prev.aiPrompt);
+
+        return {
+          ...prev,
+          genre: nextGenre,
+          fontFamily: GENRE_FONTS[nextGenre][0],
+          spineFontFamily: GENRE_FONTS[nextGenre][0],
+          aiPrompt: shouldRefreshPrompt ? GENRE_PROMPTS[nextGenre] : prev.aiPrompt,
+        };
+      }
+
+      return {
+        ...prev,
+        [name]: name === "pageCount" ? parseInt(value) || 0 : value,
+      };
+    });
     setCoverDirty(true); // any field change marks cover as needing a fresh export
   };
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setView(getViewFromPath());
+    };
+
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
+  }, []);
+
+  useEffect(() => {
+    const nextPath = getPathFromView(view);
+    if (window.location.pathname !== nextPath) {
+      window.history.pushState({}, "", nextPath);
+    }
+  }, [view]);
 
 const handleAiGeneration = async () => {
   if (isGenerating) return; // 🚨 BLOCK duplicate
@@ -438,6 +584,10 @@ const handleAiGeneration = async () => {
         onPricing={() => setView("pricing")}
         onFeatures={() => setView("features")}
         onAbout={() => setView("about")}
+        onBookCoverBee={() => setView("bookcoverbee")}
+        onBookCoverDimensions={() => setView("book-cover-dimensions")}
+        onSpineWidthCalculator={() => setView("spine-width-calculator")}
+        onPaperbackCoverSize={() => setView("paperback-cover-size")}
       />
     );
   }
@@ -450,6 +600,10 @@ const handleAiGeneration = async () => {
         onPricing={() => setView("pricing")}
         onFeatures={() => setView("features")}
         onAbout={() => setView("about")}
+        onBookCoverBee={() => setView("bookcoverbee")}
+        onBookCoverDimensions={() => setView("book-cover-dimensions")}
+        onSpineWidthCalculator={() => setView("spine-width-calculator")}
+        onPaperbackCoverSize={() => setView("paperback-cover-size")}
       />
     );
   }
@@ -462,6 +616,10 @@ const handleAiGeneration = async () => {
         onHowItWorks={() => setView("how-it-works")}
         onFeatures={() => setView("features")}
         onAbout={() => setView("about")}
+        onBookCoverBee={() => setView("bookcoverbee")}
+        onBookCoverDimensions={() => setView("book-cover-dimensions")}
+        onSpineWidthCalculator={() => setView("spine-width-calculator")}
+        onPaperbackCoverSize={() => setView("paperback-cover-size")}
       />
     );
   }
@@ -474,6 +632,10 @@ const handleAiGeneration = async () => {
         onHowItWorks={() => setView("how-it-works")}
         onPricing={() => setView("pricing")}
         onAbout={() => setView("about")}
+        onBookCoverBee={() => setView("bookcoverbee")}
+        onBookCoverDimensions={() => setView("book-cover-dimensions")}
+        onSpineWidthCalculator={() => setView("spine-width-calculator")}
+        onPaperbackCoverSize={() => setView("paperback-cover-size")}
       />
     );
   }
@@ -486,6 +648,90 @@ const handleAiGeneration = async () => {
         onHowItWorks={() => setView("how-it-works")}
         onPricing={() => setView("pricing")}
         onFeatures={() => setView("features")}
+        onBookCoverBee={() => setView("bookcoverbee")}
+        onBookCoverDimensions={() => setView("book-cover-dimensions")}
+        onSpineWidthCalculator={() => setView("spine-width-calculator")}
+        onPaperbackCoverSize={() => setView("paperback-cover-size")}
+      />
+    );
+  }
+
+  if (view === "bookcoverbee") {
+    return (
+      <BookCoverBeePage
+        onStart={() => setView("editor")}
+        onHome={() => setView("home")}
+        onHowItWorks={() => setView("how-it-works")}
+        onPricing={() => setView("pricing")}
+        onFeatures={() => setView("features")}
+        onAbout={() => setView("about")}
+        onBookCoverDimensions={() => setView("book-cover-dimensions")}
+        onSpineWidthCalculator={() => setView("spine-width-calculator")}
+      />
+    );
+  }
+
+  if (view === "book-cover-dimensions") {
+    return (
+      <BookCoverDimensionsPage
+        onStart={() => setView("editor")}
+        onHome={() => setView("home")}
+        onHowItWorks={() => setView("how-it-works")}
+        onPricing={() => setView("pricing")}
+        onFeatures={() => setView("features")}
+        onAbout={() => setView("about")}
+        onBookCoverBee={() => setView("bookcoverbee")}
+        onSpineWidthCalculator={() => setView("spine-width-calculator")}
+      />
+    );
+  }
+
+  if (view === "spine-width-calculator") {
+    return (
+      <SpineWidthCalculatorPage
+        onStart={() => setView("editor")}
+        onHome={() => setView("home")}
+        onHowItWorks={() => setView("how-it-works")}
+        onPricing={() => setView("pricing")}
+        onFeatures={() => setView("features")}
+        onAbout={() => setView("about")}
+        onBookCoverBee={() => setView("bookcoverbee")}
+        onBookCoverDimensions={() => setView("book-cover-dimensions")}
+      />
+    );
+  }
+
+  if (view === "paperback-cover-size") {
+    return (
+      <PaperbackCoverSizePage
+        onStart={() => setView("editor")}
+        onHome={() => setView("home")}
+        onHowItWorks={() => setView("how-it-works")}
+        onPricing={() => setView("pricing")}
+        onFeatures={() => setView("features")}
+        onAbout={() => setView("about")}
+      />
+    );
+  }
+
+  if (view === "book-cover-maker-free") {
+    return (
+      <BookCoverMakerFreePage
+        onStart={() => setView("editor")}
+        onHome={() => setView("home")}
+        onHowItWorks={() => setView("how-it-works")}
+        onPricing={() => setView("pricing")}
+        onFeatures={() => setView("features")}
+        onAbout={() => setView("about")}
+      />
+    );
+  }
+
+  if (view === "contact") {
+    return (
+      <ContactPage
+        onHome={() => setView("home")}
+        onStart={() => setView("editor")}
       />
     );
   }
@@ -550,10 +796,40 @@ const handleAiGeneration = async () => {
             How It Works
           </button>
           <button
+            onClick={() => setView("bookcoverbee")}
+            className="text-slate-600 hover:text-slate-900 font-semibold transition text-sm hidden lg:block"
+          >
+            KDP Creator
+          </button>
+          <button
+            onClick={() => setView("book-cover-dimensions")}
+            className="text-slate-600 hover:text-slate-900 font-semibold transition text-sm hidden xl:block"
+          >
+            Dimensions
+          </button>
+          <button
+            onClick={() => setView("spine-width-calculator")}
+            className="text-slate-600 hover:text-slate-900 font-semibold transition text-sm hidden 2xl:block"
+          >
+            Spine Width
+          </button>
+          <button
+            onClick={() => setView("paperback-cover-size")}
+            className="text-slate-600 hover:text-slate-900 font-semibold transition text-sm hidden xl:block"
+          >
+            Paperback Size
+          </button>
+          <button
             onClick={() => setView("pricing")}
             className="text-slate-600 hover:text-slate-900 font-semibold transition text-sm hidden sm:block"
           >
             Pricing
+          </button>
+          <button
+            onClick={() => setView("contact")}
+            className="text-slate-600 hover:text-slate-900 font-semibold transition text-sm hidden lg:block"
+          >
+            Contact
           </button>
           <div className="hidden md:flex gap-1">
             {[1, 2, 3, 4].map((s) => (
@@ -647,11 +923,56 @@ const handleAiGeneration = async () => {
           <button
             onClick={() => {
               setIsMobileMenuOpen(false);
+              setView("bookcoverbee");
+            }}
+            className="text-2xl font-bold text-slate-800"
+          >
+            KDP Creator
+          </button>
+          <button
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setView("book-cover-dimensions");
+            }}
+            className="text-2xl font-bold text-slate-800"
+          >
+            Dimensions
+          </button>
+          <button
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setView("spine-width-calculator");
+            }}
+            className="text-2xl font-bold text-slate-800"
+          >
+            Spine Width
+          </button>
+          <button
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setView("paperback-cover-size");
+            }}
+            className="text-2xl font-bold text-slate-800"
+          >
+            Paperback Size
+          </button>
+          <button
+            onClick={() => {
+              setIsMobileMenuOpen(false);
               setView("pricing");
             }}
             className="text-2xl font-bold text-slate-800"
           >
             Pricing
+          </button>
+          <button
+            onClick={() => {
+              setIsMobileMenuOpen(false);
+              setView("contact");
+            }}
+            className="text-2xl font-bold text-slate-800"
+          >
+            Contact
           </button>
           {isPaid && (
             <button
@@ -873,6 +1194,22 @@ const handleAiGeneration = async () => {
                     </option>
                   ))}
                 </select>
+                <p className="text-xs text-slate-500 mt-2">
+                  {GENRE_HELPERS[config.genre]}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setConfig((prev) => ({
+                      ...prev,
+                      aiPrompt: GENRE_PROMPTS[config.genre],
+                    }));
+                    setCoverDirty(true);
+                  }}
+                  className="mt-3 text-sm font-semibold text-yellow-700 hover:text-yellow-800"
+                >
+                  Use suggested {config.genre.toLowerCase()} prompt
+                </button>
               </div>
 
               <div>

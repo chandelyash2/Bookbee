@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { Logo } from '../constants';
 
+const goToContact = () => {
+  window.history.pushState({}, "", "/contact");
+  window.dispatchEvent(new PopStateEvent("popstate"));
+};
+
 interface HowItWorksProps {
   onStart: () => void;
   onHome: () => void;
   onPricing: () => void;
   onFeatures: () => void;
   onAbout: () => void;
+  onBookCoverBee: () => void;
+  onBookCoverDimensions: () => void;
+  onSpineWidthCalculator: () => void;
+  onPaperbackCoverSize: () => void;
 }
 
-const HowItWorks: React.FC<HowItWorksProps> = ({ onStart, onHome, onPricing, onFeatures, onAbout }) => {
+const HowItWorks: React.FC<HowItWorksProps> = ({ onStart, onHome, onPricing, onFeatures, onAbout, onBookCoverBee, onBookCoverDimensions, onSpineWidthCalculator, onPaperbackCoverSize }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -46,10 +55,40 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ onStart, onHome, onPricing, onF
             Features
           </button>
           <button 
+            onClick={onBookCoverBee} 
+            className="text-slate-600 hover:text-slate-900 font-semibold transition"
+          >
+            KDP Creator
+          </button>
+          <button 
+            onClick={onBookCoverDimensions} 
+            className="text-slate-600 hover:text-slate-900 font-semibold transition"
+          >
+            Dimensions
+          </button>
+          <button 
+            onClick={onSpineWidthCalculator} 
+            className="text-slate-600 hover:text-slate-900 font-semibold transition"
+          >
+            Spine Width
+          </button>
+          <button 
+            onClick={onPaperbackCoverSize} 
+            className="text-slate-600 hover:text-slate-900 font-semibold transition"
+          >
+            Paperback Size
+          </button>
+          <button 
             onClick={onPricing} 
             className="text-slate-600 hover:text-slate-900 font-semibold transition"
           >
             Pricing
+          </button>
+          <button
+            onClick={goToContact}
+            className="text-slate-600 hover:text-slate-900 font-semibold transition"
+          >
+            Contact
           </button>
           <button 
             onClick={onStart} 
@@ -93,10 +132,40 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ onStart, onHome, onPricing, onF
             Features
           </button>
           <button 
+            onClick={() => { setIsMobileMenuOpen(false); onBookCoverBee(); }} 
+            className="text-2xl font-bold text-slate-800"
+          >
+            KDP Creator
+          </button>
+          <button 
+            onClick={() => { setIsMobileMenuOpen(false); onBookCoverDimensions(); }} 
+            className="text-2xl font-bold text-slate-800"
+          >
+            Dimensions
+          </button>
+          <button 
+            onClick={() => { setIsMobileMenuOpen(false); onSpineWidthCalculator(); }} 
+            className="text-2xl font-bold text-slate-800"
+          >
+            Spine Width
+          </button>
+          <button 
+            onClick={() => { setIsMobileMenuOpen(false); onPaperbackCoverSize(); }} 
+            className="text-2xl font-bold text-slate-800"
+          >
+            Paperback Size
+          </button>
+          <button 
             onClick={() => { setIsMobileMenuOpen(false); onPricing(); }} 
             className="text-2xl font-bold text-slate-800"
           >
             Pricing
+          </button>
+          <button
+            onClick={() => { setIsMobileMenuOpen(false); goToContact(); }}
+            className="text-2xl font-bold text-slate-800"
+          >
+            Contact
           </button>
           <button 
             onClick={() => { setIsMobileMenuOpen(false); onStart(); }} 
@@ -160,6 +229,7 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ onStart, onHome, onPricing, onF
               <div className="flex flex-wrap gap-2 text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">
                 <span className="bg-slate-100 px-3 py-1 rounded-full border">Thriller</span>
                 <span className="bg-slate-100 px-3 py-1 rounded-full border">Romance</span>
+                <span className="bg-slate-100 px-3 py-1 rounded-full border">Horror</span>
                 <span className="bg-slate-100 px-3 py-1 rounded-full border">Fantasy</span>
                 <span className="bg-slate-100 px-3 py-1 rounded-full border">Non-fiction</span>
                 <span className="bg-slate-100 px-3 py-1 rounded-full border">Cookbooks</span>

@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { Logo } from '../constants';
 
+const goToContact = () => {
+  window.history.pushState({}, "", "/contact");
+  window.dispatchEvent(new PopStateEvent("popstate"));
+};
+
 interface AboutProps {
   onStart: () => void;
   onHome: () => void;
   onHowItWorks: () => void;
   onPricing: () => void;
   onFeatures: () => void;
+  onBookCoverBee: () => void;
+  onBookCoverDimensions: () => void;
+  onSpineWidthCalculator: () => void;
+  onPaperbackCoverSize: () => void;
 }
 
-const About: React.FC<AboutProps> = ({ onStart, onHome, onHowItWorks, onPricing, onFeatures }) => {
+const About: React.FC<AboutProps> = ({ onStart, onHome, onHowItWorks, onPricing, onFeatures, onBookCoverBee, onBookCoverDimensions, onSpineWidthCalculator, onPaperbackCoverSize }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -36,8 +45,23 @@ const About: React.FC<AboutProps> = ({ onStart, onHome, onHowItWorks, onPricing,
           <button onClick={onHowItWorks} className="text-slate-600 hover:text-slate-900 font-semibold transition">
             How It Works
           </button>
+          <button onClick={onBookCoverBee} className="text-slate-600 hover:text-slate-900 font-semibold transition">
+            KDP Creator
+          </button>
+          <button onClick={onBookCoverDimensions} className="text-slate-600 hover:text-slate-900 font-semibold transition">
+            Dimensions
+          </button>
+          <button onClick={onSpineWidthCalculator} className="text-slate-600 hover:text-slate-900 font-semibold transition">
+            Spine Width
+          </button>
+          <button onClick={onPaperbackCoverSize} className="text-slate-600 hover:text-slate-900 font-semibold transition">
+            Paperback Size
+          </button>
           <button onClick={onPricing} className="text-slate-600 hover:text-slate-900 font-semibold transition">
             Pricing
+          </button>
+          <button onClick={goToContact} className="text-slate-600 hover:text-slate-900 font-semibold transition">
+            Contact
           </button>
           <button onClick={onStart} className="bg-yellow-500 text-black px-6 py-2 rounded-full font-bold hover:bg-yellow-400 transition shadow-md">
             Create Cover
@@ -62,8 +86,23 @@ const About: React.FC<AboutProps> = ({ onStart, onHome, onHowItWorks, onPricing,
           <button onClick={() => { setIsMobileMenuOpen(false); onHowItWorks(); }} className="text-2xl font-bold text-slate-800">
             How It Works
           </button>
+          <button onClick={() => { setIsMobileMenuOpen(false); onBookCoverBee(); }} className="text-2xl font-bold text-slate-800">
+            KDP Creator
+          </button>
+          <button onClick={() => { setIsMobileMenuOpen(false); onBookCoverDimensions(); }} className="text-2xl font-bold text-slate-800">
+            Dimensions
+          </button>
+          <button onClick={() => { setIsMobileMenuOpen(false); onSpineWidthCalculator(); }} className="text-2xl font-bold text-slate-800">
+            Spine Width
+          </button>
+          <button onClick={() => { setIsMobileMenuOpen(false); onPaperbackCoverSize(); }} className="text-2xl font-bold text-slate-800">
+            Paperback Size
+          </button>
           <button onClick={() => { setIsMobileMenuOpen(false); onPricing(); }} className="text-2xl font-bold text-slate-800">
             Pricing
+          </button>
+          <button onClick={() => { setIsMobileMenuOpen(false); goToContact(); }} className="text-2xl font-bold text-slate-800">
+            Contact
           </button>
           <button onClick={() => { setIsMobileMenuOpen(false); onStart(); }} className="bg-yellow-500 text-black px-8 py-3 rounded-full font-black text-xl shadow-lg">
             Create Cover
