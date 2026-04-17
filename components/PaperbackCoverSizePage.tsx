@@ -193,12 +193,7 @@ const PaperbackCoverSizePage: React.FC<PaperbackCoverSizePageProps> = ({
           <Logo />
         </div>
         <div className="hidden md:flex items-center gap-6">
-          <button
-            onClick={onHome}
-            className="text-slate-600 hover:text-slate-900 font-semibold transition"
-          >
-            Home
-          </button>
+
           <button
             onClick={onAbout}
             className="text-slate-600 hover:text-slate-900 font-semibold transition"
@@ -381,7 +376,7 @@ const PaperbackCoverSizePage: React.FC<PaperbackCoverSizePageProps> = ({
                   KDP Cover Size Calculator
                 </a>{" "}
                 <span className="text-slate-500">/</span>{" "}
-                <a href="/bookcoverbee" className={linkClass}>
+                <a href="/" className={linkClass}>
                   Book Cover Creator
                 </a>
               </p>
