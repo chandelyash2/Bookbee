@@ -178,9 +178,7 @@ const SpineWidthCalculatorPage: React.FC<SpineWidthCalculatorPageProps> = ({
 
     return () => {
       document.getElementById("spine-width-calculator-schema")?.remove();
-      document
-        .getElementById("spine-width-calculator-faq-schema")
-        ?.remove();
+      document.getElementById("spine-width-calculator-faq-schema")?.remove();
     };
   }, []);
 
@@ -375,7 +373,7 @@ const SpineWidthCalculatorPage: React.FC<SpineWidthCalculatorPageProps> = ({
       )}
 
       <main className="max-w-6xl mx-auto px-6 py-16 space-y-16">
-        <section className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 items-stretch">
+        <section className="gap-8 items-stretch">
           <div className="bg-slate-900 text-white rounded-[2rem] p-8 md:p-12 shadow-xl relative overflow-hidden">
             <div className="absolute -top-12 -right-8 w-48 h-48 bg-yellow-500/30 rounded-full blur-3xl pointer-events-none"></div>
             <div className="relative z-10 space-y-6">
@@ -386,9 +384,9 @@ const SpineWidthCalculatorPage: React.FC<SpineWidthCalculatorPageProps> = ({
                 Spine Width Calculator: Get It Right the First Time
               </h1>
               <p className="text-lg md:text-xl text-slate-300 leading-relaxed max-w-3xl">
-                Book spine width can be one of the most confusing parts of
-                cover design. BookCoverBee removes the formulas and guesswork,
-                giving you the exact measurement you need in seconds.
+                Book spine width can be one of the most confusing parts of cover
+                design. BookCoverBee removes the formulas and guesswork, giving
+                you the exact measurement you need in seconds.
               </p>
               <div className="flex flex-wrap gap-3 pt-2">
                 <button
@@ -406,202 +404,230 @@ const SpineWidthCalculatorPage: React.FC<SpineWidthCalculatorPageProps> = ({
               </div>
             </div>
           </div>
-
-          <div className="grid gap-6">
-            <div className="bg-white border border-slate-200 rounded-[2rem] p-8 shadow-sm">
-              <h2 className="text-2xl font-black text-slate-900 mb-4">
-                What affects spine width?
-              </h2>
-              <ul className="space-y-3 text-slate-700">
-                <li className="flex gap-3">
-                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                  Page count
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                  Paper thickness
-                </li>
-                <li className="flex gap-3">
-                  <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                  Printing specifications
-                </li>
-              </ul>
-            </div>
-            <div className="bg-gradient-to-br from-yellow-100 via-amber-50 to-white border border-yellow-200 rounded-[2rem] p-8 shadow-sm">
-              <h2 className="text-2xl font-black text-slate-900 mb-4">
-                Why it matters
-              </h2>
-              <p className="text-slate-700 leading-relaxed">
-                A spine that is too narrow squeezes your design. A spine that is
-                too wide throws off cover alignment. Accurate measurement keeps
-                everything balanced and upload-ready.
-              </p>
-            </div>
-          </div>
         </section>
+        <article className="max-w-4xl mx-auto space-y-12 text-slate-700 leading-relaxed text-lg">
+          <section className="space-y-6">
+            <p>
+              For many authors, the spine width of a book is one of the most
+              confusing parts of the entire publishing process. It sounds
+              simple—just the thickness of the book—but in reality, it involves
+              a precise calculation based on page count, paper type, and
+              printing specifications. Get it wrong, and your cover may be
+              rejected or misaligned. Get it right, and everything fits
+              perfectly.
+            </p>
+            <p>
+              Traditionally, working out spine width has been a frustrating
+              experience. Authors often find themselves digging through
+              publishing guidelines, trying to interpret formulas, or relying on
+              static templates that don’t quite match their project. Even small
+              errors can cause big problems. A spine that is too narrow can
+              squeeze your design, while one that is too wide can throw off the
+              alignment of the entire cover.
+            </p>
+          </section>
 
-        <section className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-10 shadow-sm">
-          <div className="max-w-4xl space-y-6">
+          <section className="space-y-6">
             <h2 className="text-3xl font-black text-slate-900">
-              A technical task that does not need to feel technical
+              The BookCoverBee Advantage: Precision in Seconds
             </h2>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              Traditionally, authors had to work through platform formulas,
-              paper-thickness factors, and static templates to determine spine
-              width. Even small errors could lead to rejection or a cover that
-              does not align correctly once printed.
+            <p>
+              This is where BookCoverBee’s Spine Width Calculator changes the
+              game. Instead of manually calculating measurements or
+              second-guessing your numbers, you can generate the exact spine
+              width in seconds. The process is simple, accurate, and designed to
+              remove the stress from an otherwise technical task.
             </p>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              BookCoverBee simplifies that entire process. Enter your page
-              count, choose your book size, and the platform instantly provides
-              the correct spine width along with the full cover dimensions.
+            <p>
+              At its core, spine width is determined by the number of pages in
+              your book and the type of paper used in printing. Different paper
+              stocks have different thicknesses, which directly affect the final
+              measurement. For example, a 200-page book printed on one type of
+              paper may have a different spine width than a 200-page book
+              printed on another. This variability is what makes manual
+              calculation so tricky.
             </p>
-          </div>
-        </section>
+          </section>
 
-        <section className="grid lg:grid-cols-3 gap-6">
-          <article className="bg-white border border-slate-200 rounded-[2rem] p-8 shadow-sm lg:col-span-2">
-            <h2 className="text-3xl font-black text-slate-900 mb-6">
-              Why BookCoverBee’s spine width calculator saves time
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              Removing Complexity from Amazon KDP Formatting
             </h2>
-            <div className="space-y-5 text-lg text-slate-700 leading-relaxed">
-              <p>
-                Instead of digging through KDP documentation or manually
-                multiplying page count by a paper factor, you get accurate
-                results immediately. That means less time double-checking
-                numbers and more time focusing on the cover itself.
-              </p>
-              <p>
-                This is especially useful when your manuscript changes. If the
-                page count shifts during editing, you can update the number and
-                generate a fresh spine width instantly without restarting the
-                workflow.
-              </p>
-              <p>
-                The result is greater confidence and consistency, whether you
-                are publishing your first paperback or managing several books in
-                a series.
+            <p>
+              In the past, authors had to apply formulas provided by platforms
+              like Amazon KDP, multiplying page count by a specific factor and
+              then adding allowances for bleed and cover thickness. While these
+              formulas are accurate, they are not always easy to use. It is all
+              too common to make a small mistake in the calculation or to
+              misinterpret the requirements.
+            </p>
+            <p>
+              BookCoverBee removes this complexity entirely. You simply enter
+              your page count and select your book size. The calculator does the
+              rest. It instantly provides the correct spine width, along with
+              the full cover dimensions, ensuring that your design will meet
+              publishing standards.
+            </p>
+            <p>
+              This level of automation saves time and reduces the risk of error.
+              Instead of spending valuable hours double-checking numbers, you
+              can move forward with confidence. For authors juggling writing,
+              editing, and marketing, this efficiency makes a real difference.
+            </p>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              AI-Powered Speed and Consistent Quality
+            </h2>
+            <p>
+              Beyond accuracy, the speed of AI-powered calculation is a major
+              advantage. What once required careful manual work can now be
+              completed in a matter of seconds. This allows you to focus on the
+              creative aspects of your project rather than getting stuck in
+              technical details. The tool acts as a reliable assistant, handling
+              the precise calculations so you do not have to.
+            </p>
+            <p>
+              The benefits extend to both new and experienced authors. For
+              beginners, the calculator provides clarity and reassurance. It
+              eliminates the uncertainty that often comes with first-time
+              publishing. For seasoned writers and designers, it offers a faster
+              workflow and a dependable way to ensure consistency across
+              multiple projects.
+            </p>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              Why Spine Accuracy Impacts Your Book's Professionalism
+            </h2>
+            <p>
+              Spine width also plays a crucial role in the overall appearance of
+              your book. A well-proportioned spine allows for clear, readable
+              text and balanced design elements. This is especially important
+              for books that will be displayed on shelves, where the spine is
+              often the first thing a reader sees. If the width is incorrect,
+              the title and author name may not align properly, reducing the
+              professional look of the final product.
+            </p>
+            <p>
+              BookCoverBee integrates spine width calculation directly into the
+              design process. Once your measurements are generated, you can move
+              seamlessly into creating your cover. There is no need to switch
+              between tools or re-enter data. Everything is connected, making
+              the workflow smooth and efficient.
+            </p>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              Combining Technical Precision with AI Creativity
+            </h2>
+            <p>
+              You can then use the AI design feature to bring your cover to
+              life. By describing the elements of your story, the mood you want
+              to convey, and the setting in which your narrative takes place,
+              you guide the creation of your cover. The AI interprets your input
+              and produces designs that match your vision, all while respecting
+              the exact dimensions calculated earlier.
+            </p>
+            <p>
+              This combination of precision and creativity is what sets
+              BookCoverBee apart. It is not just a calculator—it is a complete
+              solution for authors who want to produce professional-quality
+              covers without unnecessary complexity.
+            </p>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              Flexibility for the Modern Publishing Workflow
+            </h2>
+            <p>
+              Another advantage is the ability to make quick adjustments. If
+              your page count changes during editing, you can simply update the
+              number and generate a new spine width instantly. There is no need
+              to redo calculations or worry about outdated measurements. The
+              tool adapts to your project as it evolves.
+            </p>
+            <p>
+              This flexibility is particularly useful for authors working on
+              multiple books or series. Maintaining consistent sizing and
+              alignment across different titles becomes much easier when the
+              technical aspects are handled automatically. You can focus on
+              creating a cohesive visual identity while the calculator ensures
+              everything fits correctly.
+            </p>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              Export Print-Ready PDF Files Instantly
+            </h2>
+            <p>
+              When it comes to exporting your final design, accuracy remains
+              essential. BookCoverBee allows you to download a print-ready PDF
+              that incorporates the exact spine width and overall dimensions.
+              This file is ready for upload to publishing platforms, reducing
+              the risk of rejection and saving you from last-minute adjustments.
+            </p>
+            <p>
+              There is a small cost involved when exporting your finished cover,
+              but it is minimal compared to the time and effort saved. For many
+              authors, the convenience and reliability of having everything
+              calculated and formatted correctly are well worth the price.
+            </p>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              A Simpler Path from Idea to Published Book
+            </h2>
+            <p>
+              The traditional approach to spine width calculation often feels
+              like a barrier. It requires attention to detail, familiarity with
+              formulas, and a willingness to navigate technical documentation.
+              For creative individuals, this can be a frustrating diversion from
+              the work they enjoy most.
+            </p>
+            <p>
+              By contrast, an AI-driven calculator simplifies the process to its
+              essentials. Enter your page count, select your size, and receive
+              accurate results instantly. The hassle is removed, and the path
+              from idea to finished book becomes much clearer.
+            </p>
+            <p>
+              In today’s publishing environment, tools that save time and reduce
+              complexity are invaluable. Authors are expected to manage many
+              aspects of their work, from writing and editing to marketing and
+              distribution. Anything that streamlines the process can make a
+              significant difference.
+            </p>
+            <p>
+              BookCoverBee’s Spine Width Calculator does exactly that. It takes
+              a task that was once time-consuming and error-prone and turns it
+              into a quick, reliable step in your workflow. The result is
+              greater confidence, better accuracy, and more time to focus on
+              what truly matters—your writing.
+            </p>
+            <p>
+              Ultimately, getting the spine width right is about more than just
+              meeting technical requirements. It is about presenting your book
+              in the best possible way. A properly sized spine supports a clean,
+              professional design and ensures that your work stands out for the
+              right reasons.
+            </p>
+            <div className="pt-8 border-t border-slate-200">
+              <p className="font-semibold text-slate-900 text-2xl">
+                With BookCoverBee, you no longer need to worry about
+                calculations or second-guess your measurements. The tool
+                provides the precision you need, the speed you want, and the
+                simplicity that modern authors deserve.
               </p>
             </div>
-          </article>
-
-          <aside className="bg-slate-900 text-white rounded-[2rem] p-8 shadow-xl">
-            <h2 className="text-2xl font-black mb-6">What you get</h2>
-            <ul className="space-y-4 text-slate-300">
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                Exact spine width based on your project inputs
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                Full cover dimensions for front, back, and spine
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                Seamless move from calculation into cover creation
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                Print-ready export with the exact measurements applied
-              </li>
-            </ul>
-          </aside>
-        </section>
-
-        <section className="grid lg:grid-cols-2 gap-6">
-          <div className="bg-white border border-slate-200 rounded-[2rem] p-8 shadow-sm">
-            <h2 className="text-3xl font-black text-slate-900 mb-6">
-              Precision meets creativity
-            </h2>
-            <p className="text-lg text-slate-700 leading-relaxed mb-5">
-              Once your spine width is set, BookCoverBee keeps the workflow
-              moving. You can describe the mood, setting, genre, and story
-              details you want represented, and the AI generates concepts that
-              fit the measurements already calculated.
-            </p>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              That combination of exact technical setup and fast concept
-              generation is what turns the tool into more than a calculator. It
-              becomes a practical design assistant.
-            </p>
-          </div>
-
-          <div className="bg-gradient-to-br from-amber-100 via-yellow-50 to-white border border-yellow-200 rounded-[2rem] p-8 shadow-sm">
-            <h2 className="text-3xl font-black text-slate-900 mb-6">
-              Better for first books and ongoing series
-            </h2>
-            <p className="text-lg text-slate-700 leading-relaxed mb-5">
-              New authors get reassurance that the measurements are right.
-              Experienced authors and designers get a faster, cleaner workflow
-              that supports consistency across multiple titles.
-            </p>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              When the technical parts are handled automatically, it becomes
-              much easier to maintain a strong, cohesive visual identity from
-              one book to the next.
-            </p>
-          </div>
-        </section>
-
-        <section className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-10 shadow-sm">
-          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center">
-            <div className="space-y-4">
-              <h2 className="text-3xl font-black text-slate-900">
-                Export with fewer surprises
-              </h2>
-              <p className="text-lg text-slate-700 leading-relaxed">
-                BookCoverBee lets you download a print-ready PDF with the exact
-                spine width and cover dimensions already applied, reducing the
-                risk of rejection and last-minute fixes.
-              </p>
-            </div>
-            <div className="grid sm:grid-cols-3 gap-4">
-              <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5 text-center">
-                <div className="text-3xl font-black text-slate-900 mb-2">
-                  Fast
-                </div>
-                <p className="text-slate-600">
-                  No manual formulas or spreadsheet work
-                </p>
-              </div>
-              <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5 text-center">
-                <div className="text-3xl font-black text-slate-900 mb-2">
-                  Accurate
-                </div>
-                <p className="text-slate-600">
-                  Correct spine sizing for professional alignment
-                </p>
-              </div>
-              <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5 text-center">
-                <div className="text-3xl font-black text-slate-900 mb-2">
-                  Flexible
-                </div>
-                <p className="text-slate-600">
-                  Update page counts and recalculate instantly
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-10 shadow-sm">
-          <h2 className="text-3xl font-black text-slate-900 mb-8">
-            Common questions
-          </h2>
-          <div className="grid gap-4">
-            {faqs.map((faq) => (
-              <div
-                key={faq.question}
-                className="rounded-2xl border border-slate-200 bg-slate-50 p-6"
-              >
-                <h3 className="text-xl font-black text-slate-900 mb-2">
-                  {faq.question}
-                </h3>
-                <p className="text-slate-700 leading-relaxed">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+          </section>
+        </article>
 
         <section className="bg-slate-900 text-white rounded-[2rem] p-10 md:p-14 shadow-xl text-center relative overflow-hidden">
           <div className="absolute top-1/2 left-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-500/20 blur-[120px] pointer-events-none"></div>

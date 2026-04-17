@@ -343,7 +343,7 @@ const PaperbackCoverSizePage: React.FC<PaperbackCoverSizePageProps> = ({
       )}
 
       <main className="max-w-6xl mx-auto px-6 py-16 space-y-16">
-        <section className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 items-stretch">
+        <section className=" gap-8 items-stretch">
           <div className="bg-slate-900 text-white rounded-[2rem] p-8 md:p-12 shadow-xl relative overflow-hidden">
             <div className="absolute -top-12 -right-8 w-48 h-48 bg-yellow-500/30 rounded-full blur-3xl pointer-events-none"></div>
             <div className="relative z-10 space-y-6">
@@ -368,248 +368,245 @@ const PaperbackCoverSizePage: React.FC<PaperbackCoverSizePageProps> = ({
                 </button>
               </div>
               <p className="text-sm text-slate-400 leading-relaxed">
-                Related tools:
-                {" "}
+                Related tools:{" "}
                 <a href="/book-cover-dimensions" className={linkClass}>
                   Book Cover Dimensions
-                </a>
-                {" "}
-                <span className="text-slate-500">/</span>
-                {" "}
+                </a>{" "}
+                <span className="text-slate-500">/</span>{" "}
                 <a href="/spine-width-calculator" className={linkClass}>
                   Spine Width Calculator
-                </a>
-                {" "}
-                <span className="text-slate-500">/</span>
-                {" "}
+                </a>{" "}
+                <span className="text-slate-500">/</span>{" "}
                 <a href="/kdp-cover-size-calculator" className={linkClass}>
                   KDP Cover Size Calculator
-                </a>
-                {" "}
-                <span className="text-slate-500">/</span>
-                {" "}
+                </a>{" "}
+                <span className="text-slate-500">/</span>{" "}
                 <a href="/bookcoverbee" className={linkClass}>
                   Book Cover Creator
                 </a>
               </p>
             </div>
           </div>
-
-          <div className="grid gap-6">
-            <div className="bg-white border border-slate-200 rounded-[2rem] p-8 shadow-sm">
-              <h2 className="text-2xl font-black text-slate-900 mb-4">
-                Common sizes
-              </h2>
-              <div className="grid grid-cols-2 gap-3 text-center text-slate-700 font-bold">
-                <div className="rounded-2xl bg-slate-50 border border-slate-200 px-4 py-5">
-                  5 x 8
-                </div>
-                <div className="rounded-2xl bg-slate-50 border border-slate-200 px-4 py-5">
-                  5.5 x 8.5
-                </div>
-                <div className="rounded-2xl bg-slate-50 border border-slate-200 px-4 py-5">
-                  6 x 9
-                </div>
-                <div className="rounded-2xl bg-slate-50 border border-slate-200 px-4 py-5">
-                  8.5 x 11
-                </div>
-              </div>
-            </div>
-            <div className="bg-gradient-to-br from-yellow-100 via-amber-50 to-white border border-yellow-200 rounded-[2rem] p-8 shadow-sm">
-              <h2 className="text-2xl font-black text-slate-900 mb-4">
-                Why authors use it
-              </h2>
-              <p className="text-slate-700 leading-relaxed">
-                The full cover must account for front, back, spine, and bleed.
-                BookCoverBee calculates all of it together so you can keep your
-                workflow moving.
-              </p>
-            </div>
-          </div>
         </section>
 
-        <section className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-10 shadow-sm">
-          <div className="max-w-4xl space-y-6">
+        <article className="max-w-4xl mx-auto space-y-12 text-slate-700 leading-relaxed text-lg">
+          <section className="space-y-6">
+            <p>
+              Working out the correct paperback cover size can feel more
+              complicated than it should be. For many authors, it becomes one of
+              those frustrating steps that interrupts the creative flow. This is
+              why using a dedicated{" "}
+              <strong>Paperback Cover Size Calculator</strong> is essential.
+              You’ve written your book, refined your manuscript, and now you’re
+              faced with measurements, templates, and technical requirements
+              that seem unnecessarily complex.
+            </p>
+            <p>
+              It is not uncommon to find yourself double-checking numbers,
+              comparing different guides, or wondering if you’ve made a mistake
+              somewhere along the way. The process can lead to a fair bit of
+              head scratching—and sometimes even a little nail biting—especially
+              when you know that getting it wrong could delay your publication.
+            </p>
+            <p>
+              The truth is, paperback cover size involves more than just the
+              front of the book. It includes the back cover, the spine, and the
+              bleed area. Each of these elements must be calculated precisely to
+              ensure that your cover prints correctly. Even a small
+              miscalculation can result in alignment issues or rejected files.
+            </p>
+          </section>
+
+          <section className="space-y-6">
             <h2 className="text-3xl font-black text-slate-900">
-              Why paperback cover size calculator workflows matter
+              Understanding the Precise Requirements of a Paperback Cover Size
+              Calculator
             </h2>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              Working out the correct paperback cover size can quickly turn into
-              a frustrating detour. Instead of staying in creative mode, you end
-              up comparing guides, checking templates, and wondering whether one
-              small measurement mistake is going to delay publication.
+            <p>
+              This is where BookCoverBee steps in and changes the experience
+              entirely. Instead of wrestling with formulas or trying to
+              interpret technical instructions, you can generate the exact
+              dimensions you need in seconds. Our platform acts as a
+              comprehensive <strong>Paperback Cover Size Calculator</strong>{" "}
+              that simplifies the most technical parts of your publishing
+              journey.
             </p>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              BookCoverBee removes that uncertainty. Choose your trim size,
-              enter your page count, and the platform instantly returns the full
-              cover dimensions, complete with spine width and bleed.
+            <p>
+              At the centre of everything is the trim size of your book. This is
+              the final size of your printed pages, and it determines the
+              overall proportions of your cover. Common paperback sizes include
+              5 &times; 8, 5.5 &times; 8.5, 6 &times; 9, and 8.5 &times; 11.
+              Each of these formats suits different types of books, from compact
+              novels to larger workbooks and guides.
             </p>
-          </div>
-        </section>
+            <p>
+              If you are looking for a broader overview of sizing logic, you
+              might also find our guide on{" "}
+              <a
+                href="/book-cover-dimensions"
+                className="font-bold text-slate-900 underline underline-offset-4"
+              >
+                book cover dimensions
+              </a>{" "}
+              helpful.
+            </p>
+          </section>
 
-        <section className="grid lg:grid-cols-3 gap-6">
-          <article className="bg-white border border-slate-200 rounded-[2rem] p-8 shadow-sm lg:col-span-2">
-            <h2 className="text-3xl font-black text-slate-900 mb-6">
-              How the paperback cover size calculator keeps things simple
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              How BookCoverBee Acts as Your Reliable Paperback Cover Size
+              Calculator
             </h2>
-            <div className="space-y-5 text-lg text-slate-700 leading-relaxed">
-              <p>
-                Once trim size is chosen, the total width of the cover depends
-                on the front panel, back panel, spine width, and bleed. Trying
-                to manage that manually often means hopping between multiple
-                tools and hoping everything still lines up at the end.
-              </p>
-              <p>
-                With BookCoverBee, that complexity disappears. The tool
-                calculates the full paperback cover size for formats such as
-                5 x 8, 5.5 x 8.5, 6 x 9, and 8.5 x 11 automatically, so there
-                is no need to memorize formulas or rebuild templates.
-              </p>
-              <p>
-                If you want deeper guidance for related steps, you can also
-                explore our
-                {" "}
-                <a href="/book-cover-dimensions" className="font-bold text-slate-900 underline underline-offset-4">
-                  book cover dimensions guide
-                </a>
-                {" "}
-                or check the
-                {" "}
-                <a href="/spine-width-calculator" className="font-bold text-slate-900 underline underline-offset-4">
-                  spine width calculator
-                </a>
-                {" "}
-                for a more focused measurement breakdown.
-              </p>
-            </div>
-          </article>
+            <p>
+              Once you have chosen your trim size, the next step is calculating
+              the full cover dimensions. This is where things often become
+              confusing. The total width of the cover depends on the front and
+              back panels, as well as the spine width, which itself is based on
+              your page count. On top of that, you need to account for
+              bleed—extra space around the edges to ensure clean trimming during
+              printing.
+            </p>
+            <p>
+              Trying to manage all of this manually can quickly become
+              overwhelming. Authors often find themselves switching between
+              calculators, templates, and documentation, hoping everything lines
+              up correctly in the end. It is a process that can feel
+              unnecessarily complicated for something that should be
+              straightforward.
+            </p>
+            <p>
+              BookCoverBee removes that complexity. You simply select your trim
+              size—whether it is 5 &times; 8, 5.5 &times; 8.5, 6 &times; 9, or
+              8.5 &times; 11—and enter your page count. Instantly, the tool
+              calculates the full results for you. For those specifically
+              focused on spine depth, our{" "}
+              <a
+                href="/spine-width-calculator"
+                className="font-bold text-slate-900 underline underline-offset-4"
+              >
+                spine width calculator
+              </a>{" "}
+              provides additional precision.
+            </p>
+          </section>
 
-          <aside className="bg-slate-900 text-white rounded-[2rem] p-8 shadow-xl">
-            <h2 className="text-2xl font-black mb-6">Built for speed</h2>
-            <ul className="space-y-4 text-slate-300">
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                Instant results for every new title
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                Automatic spine width and bleed handling
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                Smooth handoff into AI-assisted cover design
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                Print-ready export when your cover is finished
-              </li>
-            </ul>
-          </aside>
-        </section>
-
-        <section className="grid lg:grid-cols-2 gap-6">
-          <div className="bg-white border border-slate-200 rounded-[2rem] p-8 shadow-sm">
-            <h2 className="text-3xl font-black text-slate-900 mb-6">
-              From measurement to Book Cover Creator
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              Speed and Efficiency as Key Benefits
             </h2>
-            <p className="text-lg text-slate-700 leading-relaxed mb-5">
-              Once the sizing is set, the creative side becomes much easier.
-              You can move directly into the
-              {" "}
-              <a href="/bookcoverbee" className="font-bold text-slate-900 underline underline-offset-4">
+            <p>
+              Speed is a key benefit of an automated workflow. In traditional
+              environments, calculating paperback cover size can take time,
+              especially if you are being cautious and double-checking your
+              work. With BookCoverBee, the calculations happen in real-time.
+              This allows you to move quickly from planning to designing,
+              keeping your momentum intact.
+            </p>
+            <p>
+              For authors managing multiple projects, this efficiency becomes
+              even more valuable. Instead of repeating the same calculations for
+              each book, you can generate accurate dimensions instantly for
+              every new title. It streamlines your workflow and helps you stay
+              focused on the bigger picture. This is particularly useful when
+              using a{" "}
+              <a
+                href="/kdp-cover-size-calculator"
+                className="font-bold text-slate-900 underline underline-offset-4"
+              >
+                KDP cover size calculator
+              </a>{" "}
+              for Amazon-specific projects.
+            </p>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              From Measurement to Creative Expression
+            </h2>
+            <p>
+              Once your dimensions are set, the creative process becomes much
+              more enjoyable. BookCoverBee integrates measurement and design
+              into a single workflow, allowing you to move seamlessly from
+              technical setup to visual creation. There is no need to export
+              dimensions or re-enter data into another tool.
+            </p>
+            <p>
+              You can begin designing your cover by describing what you want to
+              see in our{" "}
+              <a
+                href="/bookcover"
+                className="font-bold text-slate-900 underline underline-offset-4"
+              >
                 Book Cover Creator
               </a>
-              {" "}
-              and start prompting the AI with mood, setting, genre cues, and
-              story details to generate cover concepts that match your vision.
+              . The AI responds to your prompts, interpreting the mood, setting,
+              and key elements of your story. Whether you are creating a
+              gripping thriller, a heartfelt romance, or an informative
+              non-fiction book, the design process adapts to your needs.
             </p>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              That means no re-entering data, no switching between sizing and
-              design tools, and no extra friction between planning and
-              production.
+            <p>
+              This combination of accurate calculations and intelligent design
+              saves both time and money. Instead of hiring a designer or
+              spending hours learning complex software, you can produce
+              professional-quality covers on your own terms.
             </p>
-          </div>
+          </section>
 
-          <div className="bg-gradient-to-br from-amber-100 via-yellow-50 to-white border border-yellow-200 rounded-[2rem] p-8 shadow-sm">
-            <h2 className="text-3xl font-black text-slate-900 mb-6">
-              A cleaner route to KDP-ready covers
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              Confidence and Flexibility for Every Project
             </h2>
-            <p className="text-lg text-slate-700 leading-relaxed mb-5">
-              If your goal is a KDP-ready cover, you can pair this page with our
-              {" "}
-              <a href="/kdp-cover-size-calculator" className="font-bold text-slate-900 underline underline-offset-4">
-                KDP cover size calculator
-              </a>
-              {" "}
-              workflow to move from accurate measurements to final design
-              without extra steps.
+            <p>
+              Experienced designers also benefit from this approach. By
+              automating the technical aspects of paperback cover size,
+              BookCoverBee frees up time for creativity. Designers can
+              experiment with ideas, refine layouts, and focus on visual impact
+              without getting bogged down in measurements.
             </p>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              The result is more confidence, fewer last-minute corrections, and
-              a much smoother publishing experience.
+            <p>
+              Another important aspect is confidence. When you know your cover
+              size is correct, you can design with assurance. There is no
+              second-guessing, no last-minute adjustments, and no worrying about
+              whether your file will be accepted. The foundation is solid,
+              allowing you to concentrate on the details that make your cover
+              stand out.
             </p>
-          </div>
-        </section>
+            <p>
+              As your project evolves, flexibility remains key. If your page
+              count changes during editing, you can simply update the number and
+              generate a new size instantly. The tool adapts to your needs,
+              ensuring that your dimensions are always up to date.
+            </p>
+          </section>
 
-        <section className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-10 shadow-sm">
-          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center">
-            <div className="space-y-4">
-              <h2 className="text-3xl font-black text-slate-900">
-                Export without second-guessing
-              </h2>
-              <p className="text-lg text-slate-700 leading-relaxed">
-                BookCoverBee gives you a high-resolution, print-ready PDF that
-                matches the calculated dimensions exactly, making upload far less
-                stressful.
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              A Professional Finish Ready for Export
+            </h2>
+            <p>
+              When your design is complete, exporting your cover is
+              straightforward. BookCoverBee provides a high-resolution,
+              print-ready PDF that matches the calculated dimensions perfectly.
+              This file can be uploaded directly to publishing platforms,
+              reducing the risk of errors and saving you time.
+            </p>
+            <p>
+              Paperback cover size does not have to be a source of frustration.
+              With the right tool, it becomes a simple step in the publishing
+              process. By removing the need for manual calculations and reducing
+              the risk of error, BookCoverBee turns a once confusing task into
+              an easy and efficient experience.
+            </p>
+            <div className="pt-8 border-t border-slate-200">
+              <p className="font-semibold text-slate-900 text-2xl">
+                With BookCoverBee, you can move forward with confidence, knowing
+                that your measurements are correct and your design is ready to
+                shine. No more head scratching—just accurate results, delivered
+                instantly.
               </p>
             </div>
-            <div className="grid sm:grid-cols-3 gap-4">
-              <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5 text-center">
-                <div className="text-3xl font-black text-slate-900 mb-2">
-                  Fast
-                </div>
-                <p className="text-slate-600">
-                  Seconds instead of repeated manual checks
-                </p>
-              </div>
-              <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5 text-center">
-                <div className="text-3xl font-black text-slate-900 mb-2">
-                  Accurate
-                </div>
-                <p className="text-slate-600">
-                  Correct spine, bleed, and full cover size
-                </p>
-              </div>
-              <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5 text-center">
-                <div className="text-3xl font-black text-slate-900 mb-2">
-                  Flexible
-                </div>
-                <p className="text-slate-600">
-                  Recalculate instantly if page count changes
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-10 shadow-sm">
-          <h2 className="text-3xl font-black text-slate-900 mb-8">
-            Common questions
-          </h2>
-          <div className="grid gap-4">
-            {faqs.map((faq) => (
-              <div
-                key={faq.question}
-                className="rounded-2xl border border-slate-200 bg-slate-50 p-6"
-              >
-                <h3 className="text-xl font-black text-slate-900 mb-2">
-                  {faq.question}
-                </h3>
-                <p className="text-slate-700 leading-relaxed">{faq.answer}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+          </section>
+        </article>
 
         <section className="bg-slate-900 text-white rounded-[2rem] p-10 md:p-14 shadow-xl text-center relative overflow-hidden">
           <div className="absolute top-1/2 left-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-500/20 blur-[120px] pointer-events-none"></div>

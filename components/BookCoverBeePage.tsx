@@ -305,7 +305,7 @@ const BookCoverBeePage: React.FC<BookCoverBeePageProps> = ({
       )}
 
       <main className="max-w-6xl mx-auto px-6 py-16 space-y-16">
-        <section className="grid lg:grid-cols-[1.2fr_0.8fr] gap-8 items-stretch">
+        <section className=" gap-8 items-stretch">
           <div className="bg-slate-900 text-white rounded-[2rem] p-8 md:p-12 shadow-xl relative overflow-hidden">
             <div className="absolute -top-12 -right-8 w-48 h-48 bg-yellow-500/30 rounded-full blur-3xl pointer-events-none"></div>
             <div className="relative z-10 space-y-6">
@@ -337,210 +337,94 @@ const BookCoverBeePage: React.FC<BookCoverBeePageProps> = ({
               </div>
             </div>
           </div>
+</section>
+        <article className="max-w-4xl mx-auto space-y-12 text-slate-700 leading-relaxed text-lg">
+          <section className="space-y-6">
+            <p>
+              Designing a professional book cover used to be a slow, expensive, and often frustrating process. Authors would spend hours trying to understand sizing requirements, hire designers at significant cost, or wrestle with complicated software that never quite delivered the vision they had in mind. BookCoverBee changes that completely. It is a practical, intuitive tool built specifically for writers who want high-quality covers without the usual hassle.
+            </p>
+            <p>
+              At its core, BookCoverBee is both a KDP cover creator and a smart design assistant. It combines precise measurement tools with AI-driven design capabilities, allowing you to move from idea to finished cover in a fraction of the time. Whether you are publishing your first book or adding to an existing catalogue, the platform simplifies every step.
+            </p>
+          </section>
 
-          <div className="grid gap-6">
-            <div className="bg-white border border-slate-200 rounded-[2rem] p-8 shadow-sm">
-              <h2 className="text-2xl font-black text-slate-900 mb-4">
-                Why it matters
-              </h2>
-              <p className="text-slate-700 leading-relaxed">
-                Amazon KDP has strict cover requirements, and even a small error
-                in spine width or bleed can cause rejected files. BookCoverBee
-                handles the calculations automatically so you can stay focused
-                on the story your cover needs to sell.
-              </p>
-            </div>
-            <div className="bg-gradient-to-br from-yellow-100 via-amber-50 to-white border border-yellow-200 rounded-[2rem] p-8 shadow-sm">
-              <h2 className="text-2xl font-black text-slate-900 mb-4">
-                Built for speed
-              </h2>
-              <p className="text-slate-700 leading-relaxed">
-                Move from idea to finished cover in a single session. Generate
-                concepts, refine prompts, and export a high-resolution PDF
-                without switching tools or starting from scratch.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="grid lg:grid-cols-3 gap-6">
-          <article className="bg-white border border-slate-200 rounded-[2rem] p-8 shadow-sm lg:col-span-2">
-            <h2 className="text-3xl font-black text-slate-900 mb-6">
-              A practical tool for authors and designers
-            </h2>
-            <div className="space-y-5 text-lg text-slate-700 leading-relaxed">
-              <p>
-                At its core, BookCoverBee is both a KDP cover creator and a
-                smart design assistant. It combines precise measurement tools
-                with AI-driven design capabilities, allowing you to move from
-                idea to finished cover in a fraction of the time.
-              </p>
-              <p>
-                Authors can describe their cover in natural language by
-                mentioning story elements, mood, setting, colors, or genre cues.
-                Whether it is a dark thriller in a rain-soaked city, a romance
-                on a sunlit beach, or a fantasy epic in a distant kingdom, the
-                AI turns those ideas into visual directions.
-              </p>
-              <p>
-                Experienced designers benefit too. BookCoverBee is not a
-                replacement for creativity. It is an accelerator for concepting,
-                testing different directions, and refining ideas quickly instead
-                of rebuilding every variation by hand.
-              </p>
-            </div>
-          </article>
-
-          <aside className="bg-slate-900 text-white rounded-[2rem] p-8 shadow-xl">
-            <h2 className="text-2xl font-black mb-6">Core capabilities</h2>
-            <ul className="space-y-4 text-slate-300">
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                KDP cover size calculator with spine width and bleed handling
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                AI-powered book cover prompt generation and concept creation
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                Print-ready PDF export for upload to KDP and similar platforms
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                Flexible workflow for one-off covers and multi-book series
-              </li>
-            </ul>
-          </aside>
-        </section>
-
-        <section className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-10 shadow-sm">
-          <div className="max-w-4xl space-y-6">
+          <section className="space-y-6">
             <h2 className="text-3xl font-black text-slate-900">
-              Correct dimensions without the research spiral
+              Eliminating the Technical Hurdles of Self-Publishing
             </h2>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              One of the biggest challenges in self-publishing is getting the
-              dimensions right. BookCoverBee removes that uncertainty. Choose a
-              trim size such as 5 x 8, 6 x 9, or 8.5 x 11, enter your page
-              count, and the platform instantly calculates the full cover size,
-              spine width, and safe margins needed for compliance.
+            <p>
+              One of the biggest challenges in self-publishing is getting the dimensions right. Amazon KDP has strict requirements, and even a small error in spine width or bleed can result in rejected files. BookCoverBee removes that uncertainty. You simply choose your trim size—such as 5x8, 6x9, or 8.5 x 11—enter your page count, and the tool calculates everything for you instantly. The correct cover size, spine width, and margins are generated automatically, ensuring your design is compliant from the start.
             </p>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              That means less time buried in technical guidelines and more time
-              shaping the look and feel of your book. Instead of wrestling with
-              templates, you can work with confidence from the first draft of
-              the cover onward.
+            <p>
+              This alone can save hours of research and trial and error. Instead of reading through technical guidelines or adjusting templates repeatedly, you can focus on what really matters: the look and feel of your book.
             </p>
-          </div>
-        </section>
+          </section>
 
-        <section className="grid lg:grid-cols-2 gap-6">
-          <div className="bg-white border border-slate-200 rounded-[2rem] p-8 shadow-sm">
-            <h2 className="text-3xl font-black text-slate-900 mb-6">
-              How the workflow feels
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              Unleashing Creativity with AI-Driven Design
             </h2>
-            <ol className="space-y-5 text-slate-700 leading-relaxed">
-              <li className="flex gap-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-900 text-white font-black">
-                  1
-                </span>
-                Select your book size and page count to establish exact cover
-                dimensions.
-              </li>
-              <li className="flex gap-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-900 text-white font-black">
-                  2
-                </span>
-                Describe your ideal cover with characters, themes, colors, and
-                atmosphere in plain language.
-              </li>
-              <li className="flex gap-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-900 text-white font-black">
-                  3
-                </span>
-                Review AI-generated directions, refine the prompt, and explore
-                variations until the cover feels right.
-              </li>
-              <li className="flex gap-4">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-slate-900 text-white font-black">
-                  4
-                </span>
-                Export a print-ready PDF when you are happy with the result.
-              </li>
-            </ol>
-          </div>
+            <p>
+              Once your dimensions are set, the creative process begins. BookCoverBee allows you to prompt its AI with clear, simple instructions. You can describe what you want on the cover in natural language. Mention the key elements of your story, the mood you want to convey, and the setting in which your narrative takes place. Whether it’s a dark thriller set in a rain-soaked city, a romantic novel on a sunlit beach, or a fantasy epic in a distant kingdom, the AI interprets your ideas and transforms them into visual concepts.
+            </p>
+            <p>
+              This is where the tool truly shines. You are not limited to templates or generic layouts. Instead, you are guiding a design process that adapts to your vision. Authors who may never have used design software before can still produce covers that look polished and market-ready.
+            </p>
+          </section>
 
-          <div className="bg-slate-900 text-white rounded-[2rem] p-8 shadow-xl relative overflow-hidden">
-            <div className="absolute inset-x-10 bottom-0 h-28 bg-yellow-500/20 blur-3xl pointer-events-none"></div>
-            <div className="relative z-10 space-y-6">
-              <h2 className="text-3xl font-black">What authors gain</h2>
-              <div className="grid gap-4">
-                <div className="rounded-2xl bg-white/5 border border-white/10 p-5">
-                  <h3 className="font-black text-yellow-400 mb-2">Speed</h3>
-                  <p className="text-slate-300">
-                    Go from concept to finished design in minutes instead of
-                    days or weeks.
-                  </p>
-                </div>
-                <div className="rounded-2xl bg-white/5 border border-white/10 p-5">
-                  <h3 className="font-black text-yellow-400 mb-2">
-                    Cost control
-                  </h3>
-                  <p className="text-slate-300">
-                    Keep budgets lean by paying only when you are ready to
-                    export the final print-ready file.
-                  </p>
-                </div>
-                <div className="rounded-2xl bg-white/5 border border-white/10 p-5">
-                  <h3 className="font-black text-yellow-400 mb-2">
-                    Series consistency
-                  </h3>
-                  <p className="text-slate-300">
-                    Reuse prompt patterns and key design elements to create a
-                    recognizable multi-book brand.
-                  </p>
-                </div>
-              </div>
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              A Versatile Tool for Both Authors and Professionals
+            </h2>
+            <p>
+              At the same time, experienced designers can benefit just as much. BookCoverBee is not a replacement for creativity—it is a powerful accelerator. Designers can use it to generate concepts quickly, test different directions, and refine ideas without starting from scratch each time. What might have taken hours in traditional software can now be achieved in minutes, freeing up time for fine-tuning and artistic decisions.
+            </p>
+            <p>
+              Speed is one of the most noticeable advantages. In the past, creating a book cover could take days or even weeks, especially if revisions were involved. With BookCoverBee, you can move from initial concept to a finished design in a single session. This is particularly valuable for authors working to deadlines or managing multiple titles.
+            </p>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              Maximizing Speed and Budget Control
+            </h2>
+            <p>
+              Cost savings are another major benefit. Hiring a professional designer can be expensive, and while that route still has its place, not every project requires a large budget. BookCoverBee offers a more accessible option. You can generate, refine, and preview your cover at minimal cost, paying only when you are ready to export the final version. For many authors, this means keeping more control over their publishing budget while still achieving a professional result.
+            </p>
+            <p>
+              The output quality is designed to meet real publishing standards. When you are satisfied with your design, you can export your finished masterpiece as a high-resolution PDF, ready for upload to KDP or other publishing platforms. The formatting is handled for you, so there is no need to worry about alignment issues or technical errors at the final stage.
+            </p>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              Professional Results for Every Genre and Series
+            </h2>
+            <p>
+              BookCoverBee is suitable for writers and authors across all genres. Whether you are producing fiction or non-fiction, romance or science fiction, memoir or business guides, the tool adapts to your needs. Each genre has its own visual language, and the AI can interpret prompts accordingly, helping you create covers that resonate with your target audience.
+            </p>
+            <p>
+              Consistency is another major advantage. If you are creating a series, BookCoverBee makes it easy to maintain a cohesive visual style across multiple books. By adjusting your prompts and reusing key elements, you can develop a recognisable brand for your work without starting from zero each time.
+            </p>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              A Simpler Path to a Stronger Presence
+            </h2>
+            <p>
+              The process itself is straightforward. You begin by selecting your book size and entering your page count. This establishes the correct dimensions. Next, you describe your ideal cover. You might include details about characters, themes, colours, or atmosphere. The AI then generates design options based on your input. From there, you can refine your prompt, adjust elements, and explore variations until you find the version that feels right.
+            </p>
+            <p>
+              In a competitive marketplace, a strong cover is not optional—it is essential. Readers often make split-second decisions based on visual appeal. A well-designed cover communicates professionalism, genre, and tone before a single word is read. BookCoverBee gives you the tools to achieve that level of quality without unnecessary complexity.
+            </p>
+            <div className="pt-8 border-t border-slate-200">
+              <p className="font-semibold text-slate-900 text-2xl">
+                Ultimately, the platform is about removing barriers. It takes something that was once technical and time-consuming and makes it accessible, efficient, and even enjoyable. You just need an idea and a tool that can carry it forward.
+              </p>
             </div>
-          </div>
-        </section>
-
-        <section className="grid lg:grid-cols-2 gap-6">
-          <div className="bg-white border border-slate-200 rounded-[2rem] p-8 shadow-sm">
-            <h2 className="text-3xl font-black text-slate-900 mb-6">
-              Suitable for every genre
-            </h2>
-            <p className="text-lg text-slate-700 leading-relaxed mb-5">
-              BookCoverBee adapts to fiction and non-fiction alike. Romance,
-              science fiction, memoir, business, thriller, fantasy, and more
-              each have a different visual language, and the AI can respond to
-              those cues to help you produce something that fits your audience.
-            </p>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              In a crowded marketplace, a strong cover communicates
-              professionalism, genre, and tone before a single page is read.
-              BookCoverBee helps you reach that level of quality without
-              unnecessary complexity.
-            </p>
-          </div>
-
-          <div className="bg-gradient-to-br from-amber-100 via-yellow-50 to-white border border-yellow-200 rounded-[2rem] p-8 shadow-sm">
-            <h2 className="text-3xl font-black text-slate-900 mb-6">
-              High-quality output
-            </h2>
-            <p className="text-lg text-slate-700 leading-relaxed mb-5">
-              When you are satisfied with your design, BookCoverBee exports a
-              high-resolution PDF ready for KDP or other publishing platforms.
-              Alignment, formatting, and technical output are handled for you.
-            </p>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              The result is a practical path from idea to finished cover:
-              quicker, more affordable, and much less intimidating than
-              traditional workflows.
-            </p>
-          </div>
-        </section>
+          </section>
+        </article>
 
         <section className="bg-slate-900 text-white rounded-[2rem] p-10 md:p-14 shadow-xl text-center relative overflow-hidden">
           <div className="absolute top-1/2 left-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-500/20 blur-[120px] pointer-events-none"></div>

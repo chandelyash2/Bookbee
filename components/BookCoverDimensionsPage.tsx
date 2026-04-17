@@ -299,7 +299,7 @@ const BookCoverDimensionsPage: React.FC<BookCoverDimensionsPageProps> = ({
       )}
 
       <main className="max-w-6xl mx-auto px-6 py-16 space-y-16">
-        <section className="grid lg:grid-cols-[1.15fr_0.85fr] gap-8 items-stretch">
+        <section className=" gap-8 items-stretch">
           <div className="bg-slate-900 text-white rounded-[2rem] p-8 md:p-12 shadow-xl relative overflow-hidden">
             <div className="absolute -top-12 -right-8 w-48 h-48 bg-yellow-500/30 rounded-full blur-3xl pointer-events-none"></div>
             <div className="relative z-10 space-y-6">
@@ -331,191 +331,109 @@ const BookCoverDimensionsPage: React.FC<BookCoverDimensionsPageProps> = ({
               </div>
             </div>
           </div>
+</section>
+        <article className="max-w-4xl mx-auto space-y-12 text-slate-700 leading-relaxed text-lg">
+          <section className="space-y-6">
+            <p>
+              Getting your book cover dimensions right is one of the most important steps in the publishing process. It may not be the most exciting part of creating a book, but it is essential. Even the most beautifully designed cover will be rejected if the sizing is incorrect. For authors using platforms like Amazon KDP, precision is not optional—it is required.
+            </p>
+            <p>
+              This is where BookCoverBee makes the process straightforward. Instead of struggling with technical guides or complicated templates, you can generate the exact dimensions you need in seconds. Whether you are publishing a novel, workbook, memoir, or guide, the platform removes the guesswork and lets you focus on your creative vision.
+            </p>
+          </section>
 
-          <div className="grid gap-6">
-            <div className="bg-white border border-slate-200 rounded-[2rem] p-8 shadow-sm">
-              <h2 className="text-2xl font-black text-slate-900 mb-4">
-                Supported trim sizes
-              </h2>
-              <div className="grid grid-cols-2 gap-3 text-center text-slate-700 font-bold">
-                <div className="rounded-2xl bg-slate-50 border border-slate-200 px-4 py-5">
-                  5 x 8
-                </div>
-                <div className="rounded-2xl bg-slate-50 border border-slate-200 px-4 py-5">
-                  5.5 x 8.5
-                </div>
-                <div className="rounded-2xl bg-slate-50 border border-slate-200 px-4 py-5">
-                  6 x 9
-                </div>
-                <div className="rounded-2xl bg-slate-50 border border-slate-200 px-4 py-5">
-                  8.5 x 11
-                </div>
-              </div>
-            </div>
-            <div className="bg-gradient-to-br from-yellow-100 via-amber-50 to-white border border-yellow-200 rounded-[2rem] p-8 shadow-sm">
-              <h2 className="text-2xl font-black text-slate-900 mb-4">
-                Why accuracy matters
-              </h2>
-              <p className="text-slate-700 leading-relaxed">
-                Even a beautiful cover can be rejected if its sizing is wrong.
-                For Amazon KDP, precision is not optional. Correct measurements
-                protect your upload, your alignment, and the final printed
-                result.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-10 shadow-sm">
-          <div className="max-w-4xl space-y-6">
+          <section className="space-y-6">
             <h2 className="text-3xl font-black text-slate-900">
-              The foundation of a professional cover
+              Understanding Trim Size and Its Purpose
             </h2>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              At the heart of book cover design is trim size, the final size of
-              your printed book. Smaller formats such as 5 x 8 are often used
-              for compact paperbacks, while 6 x 9 remains one of the most common
-              choices for novels and non-fiction. Larger formats like 8.5 x 11
-              are often used for workbooks, manuals, and educational titles.
+            <p>
+              At the heart of book cover design is the concept of trim size. This refers to the final size of your printed book. Common options include 5 &times; 8, 5.5 &times; 8.5, 6 &times; 9, and 8.5 &times; 11. Each of these sizes serves a different purpose. A 5 &times; 8 format is often used for smaller paperbacks, while 6 &times; 9 is one of the most popular sizes for novels and non-fiction titles. Larger formats such as 8.5 &times; 11 are commonly used for workbooks, manuals, and educational material.
             </p>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              Once trim size is selected, the full cover must account for the
-              back cover, front cover, spine, and bleed. The spine width changes
-              with page count, which is exactly where manual workflows often
-              become frustrating.
+            <p>
+              Choosing the right trim size is the first step. Once that is decided, the total cover size must be calculated. This includes the front cover, back cover, and spine. The spine width depends on your page count and paper type, which is where many authors run into problems. Without accurate calculations, the final file can be misaligned, leading to printing issues or rejection during upload.
             </p>
-          </div>
-        </section>
+          </section>
 
-        <section className="grid lg:grid-cols-3 gap-6">
-          <article className="bg-white border border-slate-200 rounded-[2rem] p-8 shadow-sm lg:col-span-2">
-            <h2 className="text-3xl font-black text-slate-900 mb-6">
-              How BookCoverBee simplifies book cover dimensions
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              Automating Complex Calculations with BookCoverBee
             </h2>
-            <div className="space-y-5 text-lg text-slate-700 leading-relaxed">
-              <p>
-                BookCoverBee removes the guesswork. Select your trim size, enter
-                your page count, and the tool instantly calculates the complete
-                cover dimensions, including spine width and bleed. Everything is
-                generated to match publishing requirements, so there is no need
-                for spreadsheets, downloaded templates, or repeated manual
-                checks.
-              </p>
-              <p>
-                This saves a significant amount of time and reduces the chance
-                of rejection during upload. Instead of losing hours to
-                technical documentation, you can move directly into designing
-                the cover itself.
-              </p>
-              <p>
-                Understanding dimensions also improves design decisions. Smaller
-                books feel more intimate, while larger formats create more room
-                for typography and visual detail. Accurate sizing gives your
-                design the best chance to look strong online and in print.
-              </p>
-            </div>
-          </article>
+            <p>
+              BookCoverBee simplifies this entire process. You begin by selecting your trim size—5 &times; 8, 5.5 &times; 8.5, 6 &times; 9, or 8.5 &times; 11—and then enter your page count. The tool instantly calculates the full cover dimensions, including spine width and bleed. Everything is generated to match publishing requirements, so you do not have to worry about manual calculations or errors.
+            </p>
+            <p>
+              This approach saves a significant amount of time. Traditionally, authors would need to consult detailed guidelines, use spreadsheets, or download templates that require careful adjustment. Even then, mistakes are common. With BookCoverBee, the technical work is handled automatically. You can move forward with confidence, knowing your dimensions are correct from the outset.
+            </p>
+          </section>
 
-          <aside className="bg-slate-900 text-white rounded-[2rem] p-8 shadow-xl">
-            <h2 className="text-2xl font-black mb-6">What the tool handles</h2>
-            <ul className="space-y-4 text-slate-300">
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                Full wrap size for front, back, and spine
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                Automatic page-count-based spine calculations
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                Bleed included for KDP-ready exports
-              </li>
-              <li className="flex gap-3">
-                <span className="mt-1 h-2.5 w-2.5 rounded-full bg-yellow-500"></span>
-                Seamless transition from sizing to AI-assisted cover design
-              </li>
-            </ul>
-          </aside>
-        </section>
-
-        <section className="grid lg:grid-cols-2 gap-6">
-          <div className="bg-white border border-slate-200 rounded-[2rem] p-8 shadow-sm">
-            <h2 className="text-3xl font-black text-slate-900 mb-6">
-              From dimensions to design in one flow
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              How Dimensions Inform Your Design Decisions
             </h2>
-            <p className="text-lg text-slate-700 leading-relaxed mb-5">
-              Once the measurements are set, BookCoverBee lets you move directly
-              into the creative process. Describe the mood, setting, tone, and
-              key elements you want on the cover. Ask for a dramatic skyline for
-              a thriller, a soft pastel scene for a romance, or bold typography
-              for a business title, and the AI generates concepts that match
-              your direction.
+            <p>
+              Beyond the numbers, understanding book cover dimensions also helps you make better design decisions. A smaller trim size creates a more compact, intimate feel, while a larger format gives you more space for visual elements and typography. The proportions of your cover influence how it looks both online and in print. By choosing the right size and having accurate dimensions, you give your design the best chance to stand out.
             </p>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              Instead of switching between calculators, templates, and design
-              tools, you can build the entire cover in one workflow.
+            <p>
+              Once your dimensions are set, the creative process becomes much easier. BookCoverBee allows you to move directly from measurement to design without switching tools or re-entering data. This seamless transition is one of its biggest strengths. You are not just calculating sizes—you are building your cover in a single workflow.
             </p>
-          </div>
+          </section>
 
-          <div className="bg-gradient-to-br from-amber-100 via-yellow-50 to-white border border-yellow-200 rounded-[2rem] p-8 shadow-sm">
-            <h2 className="text-3xl font-black text-slate-900 mb-6">
-              Helpful for authors and designers
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              A Seamless Workflow from Measurement to AI Design
             </h2>
-            <p className="text-lg text-slate-700 leading-relaxed mb-5">
-              First-time authors get a straightforward path through a technical
-              step that often feels intimidating. Experienced designers gain a
-              faster concepting workflow, easier experimentation across trim
-              sizes, and more time for refinement.
+            <p>
+              You can then prompt the AI to generate your design. Describe what you want to see on the cover, including the mood, setting, and key elements of your story. For example, you might request a dramatic skyline for a thriller, a soft pastel scene for a romance, or bold typography for a business book. The AI interprets your input and produces designs that match your vision.
             </p>
-            <p className="text-lg text-slate-700 leading-relaxed">
-              If you are creating a series, consistent trim sizes and
-              proportions also make it easier to maintain a recognizable visual
-              identity across multiple books.
+            <p>
+              This combination of accurate dimensions and intelligent design saves both time and money. Instead of hiring a designer for every project or spending hours learning complex software, you can achieve professional results quickly. The platform is designed to be accessible, whether you are a first-time author or someone with multiple titles.
             </p>
-          </div>
-        </section>
+          </section>
 
-        <section className="bg-white border border-slate-200 rounded-[2rem] p-8 md:p-10 shadow-sm">
-          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-center">
-            <div className="space-y-4">
-              <h2 className="text-3xl font-black text-slate-900">
-                Export with confidence
-              </h2>
-              <p className="text-lg text-slate-700 leading-relaxed">
-                BookCoverBee exports a high-resolution, print-ready PDF that
-                matches the calculated dimensions exactly. That means fewer
-                manual fixes, fewer surprises, and a smoother path to upload.
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              Benefits for Both New Authors and Pro Designers
+            </h2>
+            <p>
+              For experienced designers, the benefits are just as clear. BookCoverBee acts as a powerful assistant, handling the technical groundwork and enabling rapid concept generation. Designers can experiment with different sizes, layouts, and visual styles without starting from scratch each time. This speeds up the workflow and allows for greater creative exploration.
+            </p>
+            <p>
+              Another important factor is consistency. If you are working on a series, maintaining the same trim size and proportional layout is essential. BookCoverBee ensures that your dimensions remain accurate across multiple books, making it easier to create a cohesive visual identity. This is particularly valuable for authors building a brand or publishing regularly.
+            </p>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              Consistency Across Series and Professional Exporting
+            </h2>
+            <p>
+              When it comes to exporting your final design, precision remains key. BookCoverBee allows you to download a high-resolution, print-ready PDF that matches the calculated dimensions exactly. This file can be uploaded directly to publishing platforms without additional adjustments. The result is a smooth, reliable process from start to finish.
+            </p>
+            <p>
+              There is a small cost involved when you decide to export your finished cover, but it is minimal compared to traditional design services. For many authors, the ability to create, refine, and finalise a cover independently is worth far more than the price of export. It offers control, flexibility, and speed in a way that older methods simply cannot match.
+            </p>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              The Foundation of a Professional Book
+            </h2>
+            <p>
+              Book cover dimensions are often seen as a technical hurdle, but they do not have to be. With the right tool, they become a simple starting point rather than a barrier. By selecting your trim size—whether it is 5 &times; 8, 5.5 &times; 8.5, 6 &times; 9, or 8.5 &times; 11—and entering your page count, you can generate everything you need in seconds.
+            </p>
+            <p>
+              In today’s publishing landscape, efficiency matters. Authors are often managing multiple tasks, from writing and editing to marketing and distribution. Tools that save time and reduce complexity are invaluable. BookCoverBee fits naturally into this environment, offering a practical solution to a common challenge.
+            </p>
+            <p>
+              Ultimately, a well-sized cover is the foundation of a professional book. It ensures compatibility with publishing platforms, supports strong design, and contributes to a positive reader experience.
+            </p>
+            <div className="pt-8 border-t border-slate-200">
+              <p className="font-semibold text-slate-900 text-2xl">
+                If you want to move quickly, avoid costly mistakes, and produce high-quality results, starting with accurate dimensions is the right approach. With BookCoverBee, that step becomes effortless.
               </p>
             </div>
-            <div className="grid sm:grid-cols-3 gap-4">
-              <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5 text-center">
-                <div className="text-3xl font-black text-slate-900 mb-2">
-                  Fast
-                </div>
-                <p className="text-slate-600">
-                  Instant calculations without spreadsheets
-                </p>
-              </div>
-              <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5 text-center">
-                <div className="text-3xl font-black text-slate-900 mb-2">
-                  Precise
-                </div>
-                <p className="text-slate-600">
-                  KDP-ready sizing with bleed and spine support
-                </p>
-              </div>
-              <div className="rounded-2xl bg-slate-50 border border-slate-200 p-5 text-center">
-                <div className="text-3xl font-black text-slate-900 mb-2">
-                  Flexible
-                </div>
-                <p className="text-slate-600">
-                  One workflow from measurement to final cover
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
+          </section>
+        </article>
 
         <section className="bg-slate-900 text-white rounded-[2rem] p-10 md:p-14 shadow-xl text-center relative overflow-hidden">
           <div className="absolute top-1/2 left-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-500/20 blur-[120px] pointer-events-none"></div>
