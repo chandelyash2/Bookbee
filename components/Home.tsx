@@ -80,7 +80,7 @@ const schema = {
 const Home: React.FC<HomeProps> = ({ onStart, onHowItWorks, onPricing, onFeatures, onAbout, onBookCoverDimensions, onSpineWidthCalculator, onPaperbackCoverSize }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   useEffect(() => {
-    document.title = "BookCoverBee: Your Intelligent KDP Cover Creator";
+    document.title = "Ai Book Cover Creator | Try if For Free";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
       metaDesc.setAttribute("content", "Discover BookCoverBee, the intelligent KDP cover creator that calculates correct dimensions, generates AI-powered concepts, and exports print-ready PDF covers fast.");
