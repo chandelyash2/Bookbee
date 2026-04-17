@@ -9,7 +9,6 @@ import HowItWorks from "./components/HowItWorks";
 import Pricing from "./components/Pricing";
 import Features from "./components/Features";
 import About from "./components/About";
-import BookCoverBeePage from "./components/BookCoverBeePage";
 import BookCoverDimensionsPage from "./components/BookCoverDimensionsPage";
 import SpineWidthCalculatorPage from "./components/SpineWidthCalculatorPage";
 import PaperbackCoverSizePage from "./components/PaperbackCoverSizePage";
@@ -23,7 +22,7 @@ type View =
   | "pricing"
   | "features"
   | "about"
-  | "bookcoverbee"
+  | "home"
   | "book-cover-dimensions"
   | "spine-width-calculator"
   | "paperback-cover-size"
@@ -43,9 +42,9 @@ const getViewFromPath = (): View => {
     case "/about":
       return "about";
     case "/bookcoverbee":
-      return "bookcoverbee";
+      return "home";
     case "/kdp-cover-size-calculator":
-      return "bookcoverbee";
+      return "home";
     case "/book-cover-dimensions":
       return "book-cover-dimensions";
     case "/spine-width-calculator":
@@ -73,8 +72,8 @@ const getPathFromView = (view: View) => {
       return "/features";
     case "about":
       return "/about";
-    case "bookcoverbee":
-      return "/bookcoverbee";
+    case "home":
+      return "/";
     case "book-cover-dimensions":
       return "/book-cover-dimensions";
     case "spine-width-calculator":
@@ -584,7 +583,7 @@ const handleAiGeneration = async () => {
         onPricing={() => setView("pricing")}
         onFeatures={() => setView("features")}
         onAbout={() => setView("about")}
-        onBookCoverBee={() => setView("bookcoverbee")}
+        onBookCoverBee={() => setView("home")}
         onBookCoverDimensions={() => setView("book-cover-dimensions")}
         onSpineWidthCalculator={() => setView("spine-width-calculator")}
         onPaperbackCoverSize={() => setView("paperback-cover-size")}
@@ -600,7 +599,7 @@ const handleAiGeneration = async () => {
         onPricing={() => setView("pricing")}
         onFeatures={() => setView("features")}
         onAbout={() => setView("about")}
-        onBookCoverBee={() => setView("bookcoverbee")}
+        
         onBookCoverDimensions={() => setView("book-cover-dimensions")}
         onSpineWidthCalculator={() => setView("spine-width-calculator")}
         onPaperbackCoverSize={() => setView("paperback-cover-size")}
@@ -616,7 +615,7 @@ const handleAiGeneration = async () => {
         onHowItWorks={() => setView("how-it-works")}
         onFeatures={() => setView("features")}
         onAbout={() => setView("about")}
-        onBookCoverBee={() => setView("bookcoverbee")}
+        
         onBookCoverDimensions={() => setView("book-cover-dimensions")}
         onSpineWidthCalculator={() => setView("spine-width-calculator")}
         onPaperbackCoverSize={() => setView("paperback-cover-size")}
@@ -632,7 +631,7 @@ const handleAiGeneration = async () => {
         onHowItWorks={() => setView("how-it-works")}
         onPricing={() => setView("pricing")}
         onAbout={() => setView("about")}
-        onBookCoverBee={() => setView("bookcoverbee")}
+        
         onBookCoverDimensions={() => setView("book-cover-dimensions")}
         onSpineWidthCalculator={() => setView("spine-width-calculator")}
         onPaperbackCoverSize={() => setView("paperback-cover-size")}
@@ -648,7 +647,7 @@ const handleAiGeneration = async () => {
         onHowItWorks={() => setView("how-it-works")}
         onPricing={() => setView("pricing")}
         onFeatures={() => setView("features")}
-        onBookCoverBee={() => setView("bookcoverbee")}
+        
         onBookCoverDimensions={() => setView("book-cover-dimensions")}
         onSpineWidthCalculator={() => setView("spine-width-calculator")}
         onPaperbackCoverSize={() => setView("paperback-cover-size")}
@@ -656,20 +655,6 @@ const handleAiGeneration = async () => {
     );
   }
 
-  if (view === "bookcoverbee") {
-    return (
-      <BookCoverBeePage
-        onStart={() => setView("editor")}
-        onHome={() => setView("home")}
-        onHowItWorks={() => setView("how-it-works")}
-        onPricing={() => setView("pricing")}
-        onFeatures={() => setView("features")}
-        onAbout={() => setView("about")}
-        onBookCoverDimensions={() => setView("book-cover-dimensions")}
-        onSpineWidthCalculator={() => setView("spine-width-calculator")}
-      />
-    );
-  }
 
   if (view === "book-cover-dimensions") {
     return (
@@ -680,7 +665,7 @@ const handleAiGeneration = async () => {
         onPricing={() => setView("pricing")}
         onFeatures={() => setView("features")}
         onAbout={() => setView("about")}
-        onBookCoverBee={() => setView("bookcoverbee")}
+        onBookCoverBee={()=>setView("home")}
         onSpineWidthCalculator={() => setView("spine-width-calculator")}
       />
     );
@@ -695,7 +680,7 @@ const handleAiGeneration = async () => {
         onPricing={() => setView("pricing")}
         onFeatures={() => setView("features")}
         onAbout={() => setView("about")}
-        onBookCoverBee={() => setView("bookcoverbee")}
+        
         onBookCoverDimensions={() => setView("book-cover-dimensions")}
       />
     );
@@ -795,12 +780,7 @@ const handleAiGeneration = async () => {
           >
             How It Works
           </button>
-          <button
-            onClick={() => setView("bookcoverbee")}
-            className="text-slate-600 hover:text-slate-900 font-semibold transition text-sm hidden lg:block"
-          >
-            KDP Creator
-          </button>
+
           <button
             onClick={() => setView("book-cover-dimensions")}
             className="text-slate-600 hover:text-slate-900 font-semibold transition text-sm hidden xl:block"

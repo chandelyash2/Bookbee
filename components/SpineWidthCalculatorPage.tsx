@@ -194,12 +194,6 @@ const SpineWidthCalculatorPage: React.FC<SpineWidthCalculatorPageProps> = ({
         </div>
         <div className="hidden md:flex items-center gap-6">
           <button
-            onClick={onHome}
-            className="text-slate-600 hover:text-slate-900 font-semibold transition"
-          >
-            Home
-          </button>
-          <button
             onClick={onAbout}
             className="text-slate-600 hover:text-slate-900 font-semibold transition"
           >

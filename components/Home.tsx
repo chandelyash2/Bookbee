@@ -12,20 +12,92 @@ interface HomeProps {
   onPricing: () => void;
   onFeatures: () => void;
   onAbout: () => void;
-  onBookCoverBee: () => void;
   onBookCoverDimensions: () => void;
   onSpineWidthCalculator: () => void;
   onPaperbackCoverSize: () => void;
 }
 
-const Home: React.FC<HomeProps> = ({ onStart, onHowItWorks, onPricing, onFeatures, onAbout, onBookCoverBee, onBookCoverDimensions, onSpineWidthCalculator, onPaperbackCoverSize }) => {
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  name: "BookCoverBee – AI KDP Cover Creator and Size Calculator",
+  url: "https://www.bookcoverbee.com/",
+  description:
+    "Create professional book covers in minutes with BookCoverBee. An AI-powered KDP cover creator and book cover size calculator that saves time and money. Generate, design and export high-quality PDF covers for any genre.",
+  inLanguage: "en",
+  primaryImageOfPage: {
+    "@type": "ImageObject",
+    url: "https://www.bookcoverbee.com/cover-preview.jpg",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "BookCoverBee",
+    url: "https://www.bookcoverbee.com/",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://www.bookcoverbee.com/logo.png",
+    },
+  },
+  mainEntity: {
+    "@type": "SoftwareApplication",
+    name: "BookCoverBee",
+    applicationCategory: "DesignApplication",
+    operatingSystem: "Web",
+    url: "https://www.bookcoverbee.com/",
+    description:
+      "An AI-powered book cover creator and KDP cover size calculator that allows authors to design, customise and export print-ready covers quickly and affordably.",
+    offers: {
+      "@type": "Offer",
+      price: "9",
+      priceCurrency: "USD",
+      description: "Low-cost export of high-resolution PDF book covers",
+    },
+    featureList: [
+      "KDP cover size calculator",
+      "AI book cover generator",
+      "Spine width calculation",
+      "Custom trim size selection",
+      "Print-ready PDF export",
+      "Supports all book genres",
+      "Fast and easy cover creation",
+    ],
+  },
+  about: {
+    "@type": "Thing",
+    name: "KDP Cover Creator and Book Cover Design",
+  },
+  keywords: [
+    "kdp cover creator",
+    "book cover dimensions",
+    "spine width calculator",
+    "ai book cover generator",
+    "create book cover online",
+    "paperback cover size",
+    "amazon kdp cover requirements",
+  ],
+};
+
+const Home: React.FC<HomeProps> = ({ onStart, onHowItWorks, onPricing, onFeatures, onAbout, onBookCoverDimensions, onSpineWidthCalculator, onPaperbackCoverSize }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   useEffect(() => {
-    document.title = "AI Book Cover Creator | Try it Free";
+    document.title = "BookCoverBee: Your Intelligent KDP Cover Creator";
     const metaDesc = document.querySelector('meta[name="description"]');
     if (metaDesc) {
-      metaDesc.setAttribute("content", "Create professional book covers in seconds with BookCoverBee AI. Automatic spine and size calculations for KDP and print books. Export high-resolution covers instantly.");
+      metaDesc.setAttribute("content", "Discover BookCoverBee, the intelligent KDP cover creator that calculates correct dimensions, generates AI-powered concepts, and exports print-ready PDF covers fast.");
     }
+
+    const existingSchema = document.getElementById("home-schema");
+    existingSchema?.remove();
+
+    const script = document.createElement("script");
+    script.id = "home-schema";
+    script.type = "application/ld+json";
+    script.text = JSON.stringify(schema);
+    document.head.appendChild(script);
+
+    return () => {
+      document.getElementById("home-schema")?.remove();
+    };
   }, []);
 
   return (
@@ -50,12 +122,6 @@ const Home: React.FC<HomeProps> = ({ onStart, onHowItWorks, onPricing, onFeature
             className="text-slate-600 hover:text-slate-900 font-semibold transition"
           >
             How It Works
-          </button>
-          <button
-            onClick={onBookCoverBee}
-            className="text-slate-600 hover:text-slate-900 font-semibold transition"
-          >
-            KDP Creator
           </button>
           <button
             onClick={onBookCoverDimensions}
@@ -129,12 +195,6 @@ const Home: React.FC<HomeProps> = ({ onStart, onHowItWorks, onPricing, onFeature
             How It Works
           </button>
           <button
-            onClick={() => { setIsMobileMenuOpen(false); onBookCoverBee(); }}
-            className="text-2xl font-bold text-slate-800"
-          >
-            KDP Creator
-          </button>
-          <button
             onClick={() => { setIsMobileMenuOpen(false); onBookCoverDimensions(); }}
             className="text-2xl font-bold text-slate-800"
           >
@@ -173,17 +233,25 @@ const Home: React.FC<HomeProps> = ({ onStart, onHowItWorks, onPricing, onFeature
         </div>
       )}
 
-      <main className="flex-1 flex flex-col items-center py-16 px-6 max-w-4xl mx-auto space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-500">
+      <main className="max-w-6xl mx-auto px-6 py-16 space-y-16 animate-in fade-in slide-in-from-bottom-4 duration-500">
         <div className="text-center space-y-6">
-          <h1 className="text-5xl md:text-6xl font-black text-slate-900 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-black text-slate-900 leading-tight">
             Create Professional Book Covers in Seconds
           </h1>
           <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto font-medium">
             Welcome to BookCoverBee, the AI-powered book cover generator built for authors, publishers, and self-publishers.
           </p>
+          <div className="flex justify-center gap-4 pt-4">
+            <button
+              onClick={onStart}
+              className="bg-yellow-500 text-black px-10 py-4 rounded-full font-black text-xl hover:bg-yellow-400 transition shadow-xl hover:-translate-y-1"
+            >
+              Start Creating Now ➔
+            </button>
+          </div>
         </div>
 
-        <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-slate-200 mt-8 lg:mt-12 bg-black">
+        <div className="w-full max-w-5xl mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-200 bg-black">
           <video
             src="/Promo.mp4"
             autoPlay
@@ -196,73 +264,108 @@ const Home: React.FC<HomeProps> = ({ onStart, onHowItWorks, onPricing, onFeature
           />
         </div>
 
-        <div className="bg-white p-8 md:p-10 rounded-3xl shadow-sm border border-slate-200 mt-8 space-y-6 text-lg text-slate-700 leading-relaxed max-w-3xl">
-          <p>
-            Designing a book cover used to require graphic design skills, expensive software, and hours of frustrating calculations. BookCoverBee changes everything.
-          </p>
-          <p>
-            Simply enter your book size, number of pages, and design idea. Within seconds, our intelligent design engine generates stunning, professional book covers ready for publishing.
-          </p>
-          <p>
-            Whether you're writing a thriller, romance, cookbook, or nonfiction title, BookCoverBee creates visually striking covers tailored to your genre.
-          </p>
-        </div>
+        <article className="max-w-4xl mx-auto space-y-12 text-slate-700 leading-relaxed text-lg">
+          <section className="space-y-6">
+            <p>
+              Designing a professional book cover used to be a slow, expensive, and often frustrating process. Authors would spend hours trying to understand sizing requirements, hire designers at significant cost, or wrestle with complicated software that never quite delivered the vision they had in mind. BookCoverBee changes that completely. It is a practical, intuitive tool built specifically for writers who want high-quality covers without the usual hassle.
+            </p>
+            <p>
+              At its core, BookCoverBee is both a KDP cover creator and a smart design assistant. It combines precise measurement tools with AI-driven design capabilities, allowing you to move from idea to finished cover in a fraction of the time. Whether you are publishing your first book or adding to an existing catalogue, the platform simplifies every step.
+            </p>
+          </section>
 
-        <div className="w-full grid md:grid-cols-2 gap-8 items-stretch pt-4">
-          <div className="space-y-6 bg-white p-8 rounded-3xl border border-slate-200 shadow-sm h-full flex flex-col">
-            <h2 className="text-2xl font-black text-slate-900 border-b pb-4">Why Authors Love BookCoverBee</h2>
-            <ul className="space-y-5 flex-1 mt-4">
-              <li className="flex items-start gap-3">
-                <div className="mt-1 bg-green-100 text-green-700 p-1 rounded-full"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg></div>
-                <span><strong className="text-slate-900">Instant Cover Creation</strong> – AI generates designs in seconds</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="mt-1 bg-green-100 text-green-700 p-1 rounded-full"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg></div>
-                <span><strong className="text-slate-900">Automatic Size Calculations</strong> – No more spine width math</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="mt-1 bg-green-100 text-green-700 p-1 rounded-full"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg></div>
-                <span><strong className="text-slate-900">Genre-Smart Fonts</strong> – Perfect typography suggestions</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="mt-1 bg-green-100 text-green-700 p-1 rounded-full"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg></div>
-                <span><strong className="text-slate-900">High-Resolution Export</strong> – Print-ready 300 DPI files</span>
-              </li>
-              <li className="flex items-start gap-3">
-                <div className="mt-1 bg-green-100 text-green-700 p-1 rounded-full"><svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" /></svg></div>
-                <span><strong className="text-slate-900">Perfect for Self-Publishing</strong> – Optimised for KDP and print platforms</span>
-              </li>
-            </ul>
-            <div className="mt-6 pt-6 border-t font-semibold text-slate-800 text-center">
-              From first idea to finished cover, BookCoverBee helps bring your book to life.
-            </div>
-          </div>
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              Eliminating the Technical Hurdles of Self-Publishing
+            </h2>
+            <p>
+              One of the biggest challenges in self-publishing is getting the dimensions right. Amazon KDP has strict requirements, and even a small error in spine width or bleed can result in rejected files. BookCoverBee removes that uncertainty. You simply choose your trim size—such as 5x8, 6x9, or 8.5 x 11—enter your page count, and the tool calculates everything for you instantly. The correct cover size, spine width, and margins are generated automatically, ensuring your design is compliant from the start.
+            </p>
+            <p>
+              This alone can save hours of research and trial and error. Instead of reading through technical guidelines or adjusting templates repeatedly, you can focus on what really matters: the look and feel of your book.
+            </p>
+          </section>
 
-          <div className="space-y-6 bg-slate-900 text-white p-8 rounded-3xl shadow-xl h-full flex flex-col relative overflow-hidden">
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-yellow-500 rounded-full blur-3xl opacity-20 pointer-events-none"></div>
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              Unleashing Creativity with AI-Driven Design
+            </h2>
+            <p>
+              Once your dimensions are set, the creative process begins. BookCoverBee allows you to prompt its AI with clear, simple instructions. You can describe what you want on the cover in natural language. Mention the key elements of your story, the mood you want to convey, and the setting in which your narrative takes place. Whether it’s a dark thriller set in a rain-soaked city, a romantic novel on a sunlit beach, or a fantasy epic in a distant kingdom, the AI interprets your ideas and transforms them into visual concepts.
+            </p>
+            <p>
+              This is where the tool truly shines. You are not limited to templates or generic layouts. Instead, you are guiding a design process that adapts to your vision. Authors who may never have used design software before can still produce covers that look polished and market-ready.
+            </p>
+          </section>
 
-            <h2 className="text-2xl font-black border-b border-slate-700 pb-4 relative z-10">How It Works</h2>
-            <ol className="space-y-5 text-slate-300 list-decimal list-inside marker:font-bold marker:text-yellow-500 flex-1 mt-4 relative z-10">
-              <li className="pl-2">Choose your book size (5×8, 5.5×8.5, 6×9, or 8.5×11).</li>
-              <li className="pl-2">Enter your page count.</li>
-              <li className="pl-2">Add your title, subtitle, and back cover blurb.</li>
-              <li className="pl-2">Select your genre and preferred fonts.</li>
-              <li className="pl-2">Describe your cover idea and let the AI create the design.</li>
-              <li className="pl-2">Export a 300 DPI print-ready PDF when you're happy.</li>
-            </ol>
-            <div className="mt-6 pt-6 border-t border-slate-800 relative z-10">
-              <p className="text-yellow-400 font-bold mb-6 text-center">
-                Within moments, your book cover is ready for upload to your publishing platform.
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900 border-b pb-4">
+              A Versatile Tool for Both Authors and Professionals
+            </h2>
+            <p>
+              At the same time, experienced designers can benefit just as much. BookCoverBee is not a replacement for creativity—it is a powerful accelerator. Designers can use it to generate concepts quickly, test different directions, and refine ideas without starting from scratch each time. What might have taken hours in traditional software can now be achieved in minutes, freeing up time for fine-tuning and artistic decisions.
+            </p>
+            <p>
+              Speed is one of the most noticeable advantages. In the past, creating a book cover could take days or even weeks, especially if revisions were involved. With BookCoverBee, you can move from initial concept to a finished design in a single session. This is particularly valuable for authors working to deadlines or managing multiple titles.
+            </p>
+          </section>
+
+          <section className="space-y-6 text-center bg-slate-900 text-white p-10 md:p-14 rounded-[3rem] shadow-xl relative overflow-hidden">
+            <div className="absolute top-1/2 left-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-500/20 blur-[120px] pointer-events-none"></div>
+            <div className="relative z-10 max-w-4xl mx-auto space-y-6">
+              <h2 className="text-3xl md:text-5xl font-black leading-tight">
+                Your story deserves a cover that feels intentional
+              </h2>
+              <p className="text-lg md:text-xl text-slate-300 leading-relaxed">
+                BookCoverBee brings together precision, creativity, and speed for
+                modern publishing. You do not need advanced design skills,
+                expensive software, or a large budget.
               </p>
               <button
                 onClick={onStart}
-                className="w-full bg-yellow-500 text-black font-black text-lg py-4 rounded-xl hover:bg-yellow-400 transition shadow-lg hover:-translate-y-1"
+                className="bg-yellow-500 text-black px-10 py-4 rounded-full font-black text-lg hover:bg-yellow-400 transition shadow-lg hover:-translate-y-1"
               >
                 Start Creating Now ➔
               </button>
             </div>
-          </div>
-        </div>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              Maximizing Speed and Budget Control
+            </h2>
+            <p>
+              Cost savings are another major benefit. Hiring a professional designer can be expensive, and while that route still has its place, not every project requires a large budget. BookCoverBee offers a more accessible option. You can generate, refine, and preview your cover at minimal cost, paying only when you are ready to export the final version. For many authors, this means keeping more control over their publishing budget while still achieving a professional result.
+            </p>
+            <p>
+              The output quality is designed to meet real publishing standards. When you are satisfied with your design, you can export your finished masterpiece as a high-resolution PDF, ready for upload to KDP or other publishing platforms. The formatting is handled for you, so there is no need to worry about alignment issues or technical errors at the final stage.
+            </p>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              Professional Results for Every Genre and Series
+            </h2>
+            <p>
+              BookCoverBee is suitable for writers and authors across all genres. Whether you are producing fiction or non-fiction, romance or science fiction, memoir or business guides, the tool adapts to your needs. Each genre has its own visual language, and the AI can interpret prompts accordingly, helping you create covers that resonate with your target audience.
+            </p>
+            <p>
+              Consistency is another major advantage. If you are creating a series, BookCoverBee makes it easy to maintain a cohesive visual style across multiple books. By adjusting your prompts and reusing key elements, you can develop a recognisable brand for your work without starting from zero each time.
+            </p>
+          </section>
+
+          <section className="space-y-6">
+            <h2 className="text-3xl font-black text-slate-900">
+              A Simpler Path to a Stronger Presence
+            </h2>
+            <p>
+              The process itself is straightforward. You begin by selecting your book size and entering your page count. This establishes the correct dimensions. Next, you describe your ideal cover. You might include details about characters, themes, colours, or atmosphere. The AI then generates design options based on your input. From there, you can refine your prompt, adjust elements, and explore variations until you find the version that feels right.
+            </p>
+            <div className="pt-8 border-t border-slate-200 font-semibold text-slate-900 text-2xl">
+              Ultimately, the platform is about removing barriers. It takes something that was once technical and time-consuming and makes it accessible, efficient, and even enjoyable. You just need an idea and a tool that can carry it forward.
+            </div>
+          </section>
+        </article>
       </main>
     </div>
   );
