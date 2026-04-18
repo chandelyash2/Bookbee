@@ -98,6 +98,22 @@ const faqSchema = {
     },
     {
       "@type": "Question",
+      name: "What is bleed in paperback sizing?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Bleed is an extra 0.125 inches (3.2 mm) added to all outer edges of your cover to ensure no white gaps appear after the book is trimmed during printing.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Is this calculator accurate for Amazon KDP?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Yes, our calculator follows KDP's exact specifications for trim size, spine width (based on paper type), and bleed requirements.",
+      },
+    },
+    {
+      "@type": "Question",
       name: "Can I create and download my book cover?",
       acceptedAnswer: {
         "@type": "Answer",
@@ -122,6 +138,16 @@ const faqs = [
     question: "What are common paperback sizes?",
     answer:
       "Common paperback sizes include 5 x 8, 5.5 x 8.5, 6 x 9, and 8.5 x 11, depending on the type of book you are publishing.",
+  },
+  {
+    question: "What is bleed in paperback sizing?",
+    answer:
+      "Bleed is an extra 0.125\" (3.2mm) added to all outer edges of your cover. This ensures your design reaches the very edge after the physical book is trimmed.",
+  },
+  {
+    question: "Is this calculator accurate for Amazon KDP?",
+    answer:
+      "Absolutely. We use KDP's official math for spine width and bleed to ensure your file is accepted the first time you upload it.",
   },
   {
     question: "Can I create and download my book cover?",
@@ -602,6 +628,28 @@ const PaperbackCoverSizePage: React.FC<PaperbackCoverSizePageProps> = ({
             </div>
           </section>
         </article>
+
+        <section className="max-w-4xl mx-auto space-y-8 pt-12 border-t border-slate-200">
+          <h2 className="text-3xl md:text-4xl font-black text-slate-900 text-center">
+            Frequently Asked Questions
+          </h2>
+          <div className="grid gap-6">
+            {faqs.map((faq, index) => (
+              <div
+                key={index}
+                className="bg-white border border-slate-200 rounded-[2rem] p-8 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <h3 className="text-xl font-black text-slate-900 mb-3 flex items-start gap-3">
+                  <span className="text-yellow-500 text-2xl leading-none">?</span>
+                  {faq.question}
+                </h3>
+                <p className="text-slate-600 leading-relaxed pl-7">
+                  {faq.answer}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
 
         <section className="bg-slate-900 text-white rounded-[2rem] p-10 md:p-14 shadow-xl text-center relative overflow-hidden">
           <div className="absolute top-1/2 left-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-500/20 blur-[120px] pointer-events-none"></div>
